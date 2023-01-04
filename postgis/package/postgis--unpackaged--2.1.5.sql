@@ -88,6 +88,7 @@
  ALTER EXTENSION postgis ADD function _st_bestsrid(geography);
  ALTER EXTENSION postgis ADD function _st_bestsrid(geography,geography);
  ALTER EXTENSION postgis ADD function _st_buffer(geometry,double precision,cstring);
+ ALTER EXTENSION postgis add function _st_clip(raster,integer[],geometry,double precision[],boolean);
  ALTER EXTENSION postgis ADD function _st_colormap(raster,integer,text,text);
  ALTER EXTENSION postgis ADD function _st_concavehull(geometry);
  ALTER EXTENSION postgis ADD function _st_contains(geometry,geometry);
@@ -368,8 +369,10 @@
  ALTER EXTENSION postgis ADD function raster_overlap(raster,raster);
  ALTER EXTENSION postgis ADD function raster_overleft(raster,raster);
  ALTER EXTENSION postgis ADD function raster_overright(raster,raster);
+ ALTER EXTENSION postgis ADD function raster_recv(internal);
  ALTER EXTENSION postgis ADD function raster_right(raster,raster);
  ALTER EXTENSION postgis ADD function raster_same(raster,raster);
+ ALTER EXTENSION postgis ADD function raster_send(raster);
  ALTER EXTENSION postgis ADD function spheroid_in(cstring);
  ALTER EXTENSION postgis ADD function spheroid_out(spheroid);
  ALTER EXTENSION postgis ADD function st_3dclosestpoint(geometry,geometry);
