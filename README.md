@@ -1,5 +1,5 @@
 # geospatial repo
-PostGIS 2.5.4 for Greenplum 6.x
+PostGIS 3.3.2 for Greenplum 7.x
 
 ## License
 This project is developed under GPL v2, because PostGIS is GPL v2.
@@ -13,7 +13,7 @@ Before setting up geospatial, please make sure GPDB is installed correctly.
 To compile and install geospatial, use following command:
 
 ```
-cd postgis/build/postgis-2.5.4/
+cd postgis/build/postgis-3.3.2/
 ./autogen.sh
 ./configure --with-pgconfig=$GPHOME/bin/pg_config --with-raster --without-topology --prefix=$GPHOME
 make USE_PGXS=1 clean all install
@@ -43,7 +43,7 @@ export POSTGIS_ENABLE_OUTDB_RASTERS=0
 export POSTGIS_GDAL_ENABLED_DRIVERS=DISABLE_ALL
 ```
 
-Note: to guarantee that `make check` test cases run correctly, all the gdal drivers are disabled. To enable specific types of gdal drivers for a certain use case, please refer to this [postgis manual](http://postgis.net/docs/manual-2.5/postgis_installation.html#install_short_version). An example can be like this:
+Note: to guarantee that `make check` test cases run correctly, all the gdal drivers are disabled. To enable specific types of gdal drivers for a certain use case, please refer to this [postgis manual](http://postgis.net/docs/manual-3.3/postgis_installation.html#install_short_version). An example can be like this:
 
 ```
 POSTGIS_GDAL_ENABLED_DRIVERS="GTiff PNG JPEG GIF XYZ"
@@ -54,8 +54,8 @@ In near future we plan to create GUCs for these variables after we backport nece
 
 If any of the third party libraries are not installed in the default system path, you may see this issue while running the postgis.sql file
 ```sql
-psql -d mydatabase -f ${GPHOME}/share/postgresql/contrib/postgis-2.5/postgis.sql
-postgis-2.5.so": libgeos_c.so.1: cannot open shared object file: No such file or directory
+psql -d mydatabase -f ${GPHOME}/share/postgresql/contrib/postgis-3.3/postgis.sql
+postgis-3.so": libgeos_c.so.1: cannot open shared object file: No such file or directory
 ```
 
 This may happen because `postgis.so` cannot find one or more of the third party .so files to link against. Here is a workaround
