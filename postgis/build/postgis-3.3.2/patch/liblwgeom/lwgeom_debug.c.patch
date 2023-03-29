@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwgeom_debug.c b/liblwgeom/lwgeom_debug.c
+index 0fb9bf718..9db7cf9d0 100644
+--- a/liblwgeom/lwgeom_debug.c
++++ b/liblwgeom/lwgeom_debug.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2004 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

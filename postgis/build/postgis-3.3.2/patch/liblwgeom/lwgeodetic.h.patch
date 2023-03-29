@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwgeodetic.h b/liblwgeom/lwgeodetic.h
+index 739f073f1..8c6d3b918 100644
+--- a/liblwgeom/lwgeodetic.h
++++ b/liblwgeom/lwgeodetic.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

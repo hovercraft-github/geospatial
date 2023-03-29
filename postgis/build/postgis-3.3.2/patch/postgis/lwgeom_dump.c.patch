@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_dump.c b/postgis/lwgeom_dump.c
+index 5dd61ac34..81cc7c191 100644
+--- a/postgis/lwgeom_dump.c
++++ b/postgis/lwgeom_dump.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2001-2009 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

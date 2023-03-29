@@ -1,0 +1,12 @@
+diff --git a/postgis/long_xact.c b/postgis/long_xact.c
+index 91b2344ba..a2d145fb4 100644
+--- a/postgis/long_xact.c
++++ b/postgis/long_xact.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2006 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

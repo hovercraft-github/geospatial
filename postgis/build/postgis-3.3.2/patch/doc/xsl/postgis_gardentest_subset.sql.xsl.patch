@@ -1,0 +1,12 @@
+diff --git a/doc/xsl/postgis_gardentest_subset.sql.xsl b/doc/xsl/postgis_gardentest_subset.sql.xsl
+index 31f286a12..528ea84e0 100644
+--- a/doc/xsl/postgis_gardentest_subset.sql.xsl
++++ b/doc/xsl/postgis_gardentest_subset.sql.xsl
+@@ -3,6 +3,7 @@
+ <!-- ********************************************************************
+  ********************************************************************
+ 	 Copyright 2009, Regina Obe
++	 Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ 	 License: BSD
+ 	 Purpose: This is an xsl transform that generates an sql test script from xml docs to test all the functions we have documented
+ 			using a garden variety of geometries.  Its intent is to flag major crashes.  This version is similar to the full but designed to

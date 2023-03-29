@@ -1,0 +1,12 @@
+diff --git a/postgis/postgis_module.c b/postgis/postgis_module.c
+index 6631c7617..35afa9a90 100644
+--- a/postgis/postgis_module.c
++++ b/postgis/postgis_module.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2011  OpenGeo.org
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

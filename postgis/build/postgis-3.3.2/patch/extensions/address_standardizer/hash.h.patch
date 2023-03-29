@@ -1,0 +1,12 @@
+diff --git a/extensions/address_standardizer/hash.h b/extensions/address_standardizer/hash.h
+index 1067a03b6..ae3473a6c 100644
+--- a/extensions/address_standardizer/hash.h
++++ b/extensions/address_standardizer/hash.h
+@@ -3,6 +3,7 @@
+ // hash.h
+ //
+ // Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
++// Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ //
+ 
+ #ifndef HASH

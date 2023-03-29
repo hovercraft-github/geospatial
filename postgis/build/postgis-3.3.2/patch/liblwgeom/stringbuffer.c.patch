@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/stringbuffer.c b/liblwgeom/stringbuffer.c
+index 14ad3cc50..f4bae4120 100644
+--- a/liblwgeom/stringbuffer.c
++++ b/liblwgeom/stringbuffer.c
+@@ -20,6 +20,7 @@
+  *
+  * Copyright 2002 Thamer Alharbash
+  * Copyright 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

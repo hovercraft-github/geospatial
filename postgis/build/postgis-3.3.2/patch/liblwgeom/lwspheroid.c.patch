@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwspheroid.c b/liblwgeom/lwspheroid.c
+index 66322917a..e5a5dc021 100644
+--- a/liblwgeom/lwspheroid.c
++++ b/liblwgeom/lwspheroid.c
+@@ -20,6 +20,7 @@
+  *
+  * Copyright (C) 2009 Paul Ramsey <pramsey@cleverelephant.ca>
+  * Copyright (C) 2009 David Skea <David.Skea@gov.bc.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

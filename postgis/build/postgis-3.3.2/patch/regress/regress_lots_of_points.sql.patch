@@ -1,0 +1,13 @@
+diff --git a/regress/regress_lots_of_points.sql b/regress/regress_lots_of_points.sql
+index e9e7a715a..d80586e76 100644
+--- a/regress/regress_lots_of_points.sql
++++ b/regress/regress_lots_of_points.sql
+@@ -10,7 +10,7 @@
+ CREATE TABLE "test" (
+ 	"num" bigint,
+ 	"the_geom" geometry
+-);
++) DISTRIBUTED BY(num);
+ 
+ --
+ -- Data for TOC Entry ID 4 (OID 2231457)

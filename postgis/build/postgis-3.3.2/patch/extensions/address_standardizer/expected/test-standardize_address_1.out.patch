@@ -1,0 +1,13 @@
+diff --git a/extensions/address_standardizer/expected/test-standardize_address_1.out b/extensions/address_standardizer/expected/test-standardize_address_1.out
+index 34e825809..65e1767bf 100644
+--- a/extensions/address_standardizer/expected/test-standardize_address_1.out
++++ b/extensions/address_standardizer/expected/test-standardize_address_1.out
+@@ -10,7 +10,7 @@ select * from standardize_address('us_lex'::text, 'us_gaz'::text, 'us_rules'::te
+           | 123       |        |      |         | MAIN | STREET  |        |            |       | KANSAS CITY | MISSOURI |         | 45678    |     | 
+ (1 row)
+ 
+-SELECT '#2981' As ticket, * FROM standardize_address('us_lex','us_gaz','us_rules', '1566 NEW STATE HWY, RAYNHAM, MA') ;
++SELECT '#2981' As ticket, * FROM standardize_address('us_lex','us_gaz','us_rules', '1566 NEW STATE HWY, RAYNHAM, MA');
+  ticket | building | house_num | predir | qual | pretype |       name        | suftype | sufdir | ruralroute | extra |  city   |     state     | country | postcode | box | unit 
+ --------+----------+-----------+--------+------+---------+-------------------+---------+--------+------------+-------+---------+---------------+---------+----------+-----+------
+  #2981  |          | 1566      |        |      |         | NEW STATE HIGHWAY |         |        |            |       | RAYNHAM | MASSACHUSETTS | USA     |          |     | 

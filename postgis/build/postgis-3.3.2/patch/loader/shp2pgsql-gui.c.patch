@@ -1,0 +1,12 @@
+diff --git a/loader/shp2pgsql-gui.c b/loader/shp2pgsql-gui.c
+index ebb67e46d..d31ae5bd0 100644
+--- a/loader/shp2pgsql-gui.c
++++ b/loader/shp2pgsql-gui.c
+@@ -4,6 +4,7 @@
+  * http://postgis.net
+  * Copyright 2008 OpenGeo.org
+  * Copyright 2010 LISAsoft
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

@@ -1,0 +1,12 @@
+diff --git a/topology/postgis_topology.c b/topology/postgis_topology.c
+index adb0c51be..69526d617 100644
+--- a/topology/postgis_topology.c
++++ b/topology/postgis_topology.c
+@@ -4,6 +4,7 @@
+  * http://postgis.net
+  *
+  * Copyright (C) 2015 Sandro Santilli <strk@kbt.io>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

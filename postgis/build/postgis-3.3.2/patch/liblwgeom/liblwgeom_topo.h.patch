@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/liblwgeom_topo.h b/liblwgeom/liblwgeom_topo.h
+index b7affc768..9786bf3b3 100644
+--- a/liblwgeom/liblwgeom_topo.h
++++ b/liblwgeom/liblwgeom_topo.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2015-2017 Sandro Santilli <strk@kbt.io>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

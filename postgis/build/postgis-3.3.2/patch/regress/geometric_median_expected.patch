@@ -1,0 +1,18 @@
+diff --git a/regress/geometric_median_expected b/regress/geometric_median_expected
+index ba2e48ff5..829e485ff 100644
+--- a/regress/geometric_median_expected
++++ b/regress/geometric_median_expected
+@@ -1,5 +1,5 @@
+ t1|t
+-ERROR:  Unsupported geometry type in lwgeom_median
++ERROR:  Unsupported geometry type in lwgeom_median (lwgeom_pg.c:128)
+ t3|t
+ t4|t
+ t5|t
+@@ -7,5 +7,5 @@ t6|t
+ t7|t
+ t8|t
+ t9|f
+-ERROR:  Median failed to converge within 2e-6 after 1 iterations.
++ERROR:  Median failed to converge within 2e-6 after 1 iterations. (lwgeom_pg.c:128)
+ t11|f

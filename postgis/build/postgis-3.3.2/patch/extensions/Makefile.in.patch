@@ -1,0 +1,12 @@
+diff --git a/extensions/Makefile.in b/extensions/Makefile.in
+index cfca4d278..7c94b018f 100644
+--- a/extensions/Makefile.in
++++ b/extensions/Makefile.in
+@@ -3,6 +3,7 @@
+ # Master Makefile used to build extensions
+ # Copyright (C) 2012 Regina Obe and Leo Hsu <lr@pcorp.us>
+ # Copyright (C) 2012 Sandro Santilli <strk@kbt.io>
++# Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ #
+ # This is free software; you can redistribute and/or modify it under
+ # the terms of the GNU General Public Licence. See the COPYING file.

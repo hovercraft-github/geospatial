@@ -1,0 +1,12 @@
+diff --git a/postgis/geography_measurement_trees.h b/postgis/geography_measurement_trees.h
+index fac792ed7..b69caf3fa 100644
+--- a/postgis/geography_measurement_trees.h
++++ b/postgis/geography_measurement_trees.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * ^copyright^
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

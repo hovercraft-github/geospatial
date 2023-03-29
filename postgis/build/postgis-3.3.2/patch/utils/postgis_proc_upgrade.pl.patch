@@ -1,0 +1,28 @@
+diff --git a/utils/postgis_proc_upgrade.pl b/utils/postgis_proc_upgrade.pl
+index a83af4282..d98c0877c 100755
+--- a/utils/postgis_proc_upgrade.pl
++++ b/utils/postgis_proc_upgrade.pl
+@@ -7,6 +7,7 @@
+ # Copyright (C) 2014 Sandro Santilli <strk@kbt.io>
+ # Copyright (C) 2009-2010 Paul Ramsey <pramsey@opengeo.org>
+ # Copyright (C) 2005 Refractions Research Inc.
++# Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ #
+ # This is free software; you can redistribute and/or modify it under
+ # the terms of the GNU General Public Licence. See the COPYING file.
+@@ -234,13 +235,13 @@ EOF
+ 	}
+ 
+ 	# This code handles aggregates by dropping and recreating them.
+-	if ( /^create aggregate\s+([^(]+)\s*\(/i )
++	if ( /^create (?:ordered\s)*aggregate\s+([^(]+)\s*\(/i )
+ 	{
+ 		my $aggname = $1;
+     #print "-- Aggname ${aggname}\n";
+ 		my $aggtype = 'unknown';
+ 		my $def = $_;
+-    if ( /^create aggregate\s+\S+\s*\(([^)]*)\)/i ) {
++	if ( /^create (?:ordered\s)*aggregate\s+\S+\s*\(([^)]*)\)/i ) {
+ 	    $aggtype = $1;
+       $aggtype =~ s/\s*,\s*/,/g; # drop spaces around commas
+       $aggtype =~ s/\s\s*/ /g; # collapse multiple spaces into one

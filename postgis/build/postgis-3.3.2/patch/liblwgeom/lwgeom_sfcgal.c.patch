@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwgeom_sfcgal.c b/liblwgeom/lwgeom_sfcgal.c
+index ac9760016..4220f03b1 100644
+--- a/liblwgeom/lwgeom_sfcgal.c
++++ b/liblwgeom/lwgeom_sfcgal.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2012-2013 Oslandia <infos@oslandia.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

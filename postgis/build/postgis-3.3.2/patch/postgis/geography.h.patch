@@ -1,0 +1,12 @@
+diff --git a/postgis/geography.h b/postgis/geography.h
+index 2cc925ff6..57422ef8b 100644
+--- a/postgis/geography.h
++++ b/postgis/geography.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

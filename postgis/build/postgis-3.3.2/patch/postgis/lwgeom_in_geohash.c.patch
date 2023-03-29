@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_in_geohash.c b/postgis/lwgeom_in_geohash.c
+index b4bc9c55a..52cab4b13 100644
+--- a/postgis/lwgeom_in_geohash.c
++++ b/postgis/lwgeom_in_geohash.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2012 J Smith <dark.panda@gmail.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

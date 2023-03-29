@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwout_x3d.c b/liblwgeom/lwout_x3d.c
+index bfb1bf8ec..c65f94e89 100644
+--- a/liblwgeom/lwout_x3d.c
++++ b/liblwgeom/lwout_x3d.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2011-2017 Arrival 3D, Regina Obe
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

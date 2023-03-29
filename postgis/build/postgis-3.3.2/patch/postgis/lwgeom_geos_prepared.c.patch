@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_geos_prepared.c b/postgis/lwgeom_geos_prepared.c
+index 1154427af..d8457eff1 100644
+--- a/postgis/lwgeom_geos_prepared.c
++++ b/postgis/lwgeom_geos_prepared.c
+@@ -21,6 +21,7 @@
+  * Copyright (C) 2012 Sandro Santilli <strk@kbt.io>
+  * Copyright (C) 2008 Paul Ramsey <pramsey@cleverelephant.ca>
+  * Copyright (C) 2007 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

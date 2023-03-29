@@ -1,0 +1,12 @@
+diff --git a/postgis/Makefile.in b/postgis/Makefile.in
+index fed3cb855..09d2b930e 100644
+--- a/postgis/Makefile.in
++++ b/postgis/Makefile.in
+@@ -19,6 +19,7 @@
+ # **********************************************************************
+ # *
+ # * Copyright 2008 Mark Cave-Ayland
++# * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ # *
+ # **********************************************************************
+ 

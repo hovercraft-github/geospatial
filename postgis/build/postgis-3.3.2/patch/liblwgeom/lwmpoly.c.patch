@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwmpoly.c b/liblwgeom/lwmpoly.c
+index 8bd2b2d74..6d9147880 100644
+--- a/liblwgeom/lwmpoly.c
++++ b/liblwgeom/lwmpoly.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2001-2006 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

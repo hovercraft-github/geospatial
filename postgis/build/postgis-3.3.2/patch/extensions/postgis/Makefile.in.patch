@@ -1,0 +1,21 @@
+diff --git a/extensions/postgis/Makefile.in b/extensions/postgis/Makefile.in
+index bbceea145..8c9874dfc 100644
+--- a/extensions/postgis/Makefile.in
++++ b/extensions/postgis/Makefile.in
+@@ -79,12 +79,10 @@ $(EXTENSION).control: $(EXTENSION).control.in Makefile
+ sql/$(EXTENSION)--$(EXTVERSION).sql: sql/$(EXTENSION).sql | sql
+ 	cp $< $@
+ 
+-sql/$(EXTENSION)--unpackaged--$(EXTVERSION).sql: $(EXTENSION_UNPACKAGED_UPGRADE_SCRIPTS) sql/$(EXTENSION)--ANY--$(EXTVERSION).sql ../../utils/create_unpackaged.pl Makefile | sql
+-	# Ensure version is correct
+-	cat sql/$(EXTENSION)--ANY--$(EXTVERSION).sql > $@
+-	cat $(EXTENSION_UNPACKAGED_UPGRADE_SCRIPTS) \
+-		| $(PERL) ../../utils/create_unpackaged.pl postgis \
+-		>> $@
++sql/$(EXTENSION)--unpackaged--$(EXTVERSION).sql: sql/$(EXTENSION)--$(EXTVERSION).sql sql/$(EXTENSION)--ANY--$(EXTVERSION).sql ../../utils/create_unpackaged.pl Makefile | sql
++	$(PERL) @top_srcdir@/utils/create_unpackaged.pl postgis < sql/$(EXTENSION)--$(EXTVERSION).sql > $@
++	# Upgrade after packaging
++	cat sql/$(EXTENSION)--ANY--$(EXTVERSION).sql >> $@
+ 
+ unpackaged_check.sql: unpackaged_check.sql.in Makefile
+ 	cat $< \

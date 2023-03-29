@@ -1,0 +1,12 @@
+diff --git a/raster/scripts/plpgsql/st_histogram.sql b/raster/scripts/plpgsql/st_histogram.sql
+index f4571c82b..7518e095e 100644
+--- a/raster/scripts/plpgsql/st_histogram.sql
++++ b/raster/scripts/plpgsql/st_histogram.sql
+@@ -2,6 +2,7 @@
+ --
+ --
+ -- Copyright (c) 2009-2010 Pierre Racine <pierre.racine@sbf.ulaval.ca>
++-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ --
+ ----------------------------------------------------------------------
+ -- NOTE: The ST_Histogram() function is already implemented in C. This plpgsql script is provided only as an example.

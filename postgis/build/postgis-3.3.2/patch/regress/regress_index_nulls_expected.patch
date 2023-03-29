@@ -1,0 +1,13 @@
+diff --git a/regress/regress_index_nulls_expected b/regress/regress_index_nulls_expected
+index f50f3abea..b0295bc70 100644
+--- a/regress/regress_index_nulls_expected
++++ b/regress/regress_index_nulls_expected
+@@ -1,4 +1,8 @@
+ NOTICE:  table "indexnulls" does not exist, skipping
+ NOTICE:  table "indexnulls" does not exist, skipping
+ NOTICE:  table "indexempty" does not exist, skipping
++NOTICE:  no non-null/empty features, unable to compute statistics
++NOTICE:  no non-null/empty features, unable to compute statistics
+ NOTICE:  table "indexempty" does not exist, skipping
++NOTICE:  no non-null/empty features, unable to compute statistics
++NOTICE:  no non-null/empty features, unable to compute statistics

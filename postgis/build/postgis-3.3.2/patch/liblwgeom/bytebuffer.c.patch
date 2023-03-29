@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/bytebuffer.c b/liblwgeom/bytebuffer.c
+index 397a2109d..e2c6569b5 100644
+--- a/liblwgeom/bytebuffer.c
++++ b/liblwgeom/bytebuffer.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2015 Nicklas Avén <nicklas.aven@jordogskog.no>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

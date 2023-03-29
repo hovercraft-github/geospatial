@@ -1,0 +1,12 @@
+diff --git a/postgis/gserialized_spgist_3d.c b/postgis/gserialized_spgist_3d.c
+index d11c291cd..7a01e69bf 100644
+--- a/postgis/gserialized_spgist_3d.c
++++ b/postgis/gserialized_spgist_3d.c
+@@ -67,6 +67,7 @@
+  * 		Université Libre de Bruxelles
+  * Portions Copyright (c) 1996-2016, PostgreSQL Global Development Group
+  * Portions Copyright (c) 1994, Regents of the University of California
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  *****************************************************************************/
+ 

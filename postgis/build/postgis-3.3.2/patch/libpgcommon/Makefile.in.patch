@@ -1,0 +1,49 @@
+diff --git a/libpgcommon/Makefile.in b/libpgcommon/Makefile.in
+index 72b0b37c6..a59abe496 100644
+--- a/libpgcommon/Makefile.in
++++ b/libpgcommon/Makefile.in
+@@ -3,6 +3,7 @@
+ # * PostGIS - Spatial Types for PostgreSQL
+ # * http://postgis.net
+ # * Copyright 2008 Mark Cave-Ayland
++# * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ # *
+ # * This is free software; you can redistribute and/or modify it under
+ # * the terms of the GNU General Public Licence. See the COPYING file.
+@@ -21,6 +22,7 @@ LEX=@LEX@
+ # Standalone COMMON objects
+ SA_OBJS = \
+ 	gserialized_gist.o \
++	libsrid.o \
+ 	lwgeom_transform.o \
+ 	lwgeom_cache.o \
+ 	lwgeom_pg.o
+@@ -28,6 +30,7 @@ SA_OBJS = \
+ 
+ SA_HEADERS = \
+ 	lwgeom_pg.h \
++	libsrid.h \
+ 	lwgeom_transform.h \
+ 	lwgeom_cache.h \
+ 	gserialized_gist.h \
+@@ -39,15 +42,15 @@ all: libpgcommon.a
+ install uninstall:
+ 
+ libpgcommon.a: $(SA_OBJS) $(SA_HEADERS)
+-	ar rs libpgcommon.a $(SA_OBJS) 
++	ar rs libpgcommon.a $(SA_OBJS)
+ 
+ maintainer-clean: clean
+ 
+-clean: 
++clean:
+ 	$(MAKE) -C cunit clean
+-	rm -f $(SA_OBJS) 
+-	rm -f $(NM_OBJS) 
+-	rm -f libpgcommon.a 
++	rm -f $(SA_OBJS)
++	rm -f $(NM_OBJS)
++	rm -f libpgcommon.a
+ 
+ distclean: clean
+ 	$(MAKE) -C cunit distclean

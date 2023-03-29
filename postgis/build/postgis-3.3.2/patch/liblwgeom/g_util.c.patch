@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/g_util.c b/liblwgeom/g_util.c
+index 915f93fca..2d0d8f6d9 100644
+--- a/liblwgeom/g_util.c
++++ b/liblwgeom/g_util.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

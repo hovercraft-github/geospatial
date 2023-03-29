@@ -1,0 +1,21 @@
+diff --git a/doc/html/image_src/Makefile.in b/doc/html/image_src/Makefile.in
+index 24311d969..399c0b39d 100644
+--- a/doc/html/image_src/Makefile.in
++++ b/doc/html/image_src/Makefile.in
+@@ -3,6 +3,7 @@
+ # * PostGIS - Spatial Types for PostgreSQL
+ # * http://postgis.net
+ # * Copyright 2008 Kevin Neufeld
++# * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ # *
+ # * This is free software; you can redistribute and/or modify it under
+ # * the terms of the GNU General Public Licence. See the COPYING file.
+@@ -132,8 +133,6 @@ IMAGES= \
+ 	../images/st_split04.png \
+ 	../images/st_straightskeleton01.png \
+ 	../images/st_approximatemedialaxis01.png \
+-	../images/st_subdivide01.png \
+-	../images/st_subdivide02.png \
+ 	../images/st_symdifference01.png \
+ 	../images/st_symdifference02.png \
+ 	../images/st_tesselate03.png \

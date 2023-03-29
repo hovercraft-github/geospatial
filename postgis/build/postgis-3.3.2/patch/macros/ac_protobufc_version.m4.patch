@@ -1,0 +1,12 @@
+diff --git a/macros/ac_protobufc_version.m4 b/macros/ac_protobufc_version.m4
+index c7137fee7..d06975288 100644
+--- a/macros/ac_protobufc_version.m4
++++ b/macros/ac_protobufc_version.m4
+@@ -3,6 +3,7 @@ dnl *
+ dnl * PostGIS - Spatial Types for PostgreSQL
+ dnl * http://postgis.net
+ dnl * Copyright 2019 Paul Ramsey <pramsey@cleverelephant.ca>
++dnl * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ dnl *
+ dnl * This is free software; you can redistribute and/or modify it under
+ dnl * the terms of the GNU General Public Licence. See the COPYING file.

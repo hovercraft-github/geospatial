@@ -1,0 +1,12 @@
+diff --git a/postgis/gserialized_typmod.c b/postgis/gserialized_typmod.c
+index 6fac5b4c8..fc6d0a449 100644
+--- a/postgis/gserialized_typmod.c
++++ b/postgis/gserialized_typmod.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

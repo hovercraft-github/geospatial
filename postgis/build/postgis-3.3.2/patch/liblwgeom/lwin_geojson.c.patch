@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwin_geojson.c b/liblwgeom/lwin_geojson.c
+index 5dbf00e5d..a0eff8086 100644
+--- a/liblwgeom/lwin_geojson.c
++++ b/liblwgeom/lwin_geojson.c
+@@ -20,6 +20,7 @@
+  *
+  * Copyright 2013 Sandro Santilli <strk@kbt.io>
+  * Copyright 2011 Kashif Rasul <kashif.rasul@gmail.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

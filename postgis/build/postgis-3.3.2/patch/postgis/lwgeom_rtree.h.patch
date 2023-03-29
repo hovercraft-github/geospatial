@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_rtree.h b/postgis/lwgeom_rtree.h
+index 484ed816c..f56d2032f 100644
+--- a/postgis/lwgeom_rtree.h
++++ b/postgis/lwgeom_rtree.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * ^copyright^
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

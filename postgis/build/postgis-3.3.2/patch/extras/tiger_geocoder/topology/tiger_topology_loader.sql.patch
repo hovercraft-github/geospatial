@@ -1,0 +1,12 @@
+diff --git a/extras/tiger_geocoder/topology/tiger_topology_loader.sql b/extras/tiger_geocoder/topology/tiger_topology_loader.sql
+index 6b9e8bcd9..a820333ef 100644
+--- a/extras/tiger_geocoder/topology/tiger_topology_loader.sql
++++ b/extras/tiger_geocoder/topology/tiger_topology_loader.sql
+@@ -3,6 +3,7 @@
+  * PostGIS - Spatial Types for PostgreSQL
+  * Copyright 2011 Leo Hsu and Regina Obe <lr@pcorp.us>
+  * Paragon Corporation
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.
+  *

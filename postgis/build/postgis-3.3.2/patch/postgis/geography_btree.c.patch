@@ -1,0 +1,12 @@
+diff --git a/postgis/geography_btree.c b/postgis/geography_btree.c
+index 9b0d8896c..991f8804c 100644
+--- a/postgis/geography_btree.c
++++ b/postgis/geography_btree.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

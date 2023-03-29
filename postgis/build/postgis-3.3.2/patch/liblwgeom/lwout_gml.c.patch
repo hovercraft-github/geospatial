@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwout_gml.c b/liblwgeom/lwout_gml.c
+index f738f4dd8..3dcec6fc4 100644
+--- a/liblwgeom/lwout_gml.c
++++ b/liblwgeom/lwout_gml.c
+@@ -21,6 +21,7 @@
+  * Copyright 2011 Sandro Santilli <strk@kbt.io>
+  * Copyright 2010-2012 Oslandia
+  * Copyright 2001-2003 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

@@ -1,0 +1,12 @@
+diff --git a/doc/Makefile.comments.in b/doc/Makefile.comments.in
+index ba507b9fb..21ede21a6 100644
+--- a/doc/Makefile.comments.in
++++ b/doc/Makefile.comments.in
+@@ -3,6 +3,7 @@
+ # * PostGIS - Spatial Types for PostgreSQL
+ # * http://postgis.net
+ # * Copyright 2010 Mark Cave-Ayland
++# * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ # *
+ # * This is free software; you can redistribute and/or modify it under
+ # * the terms of the GNU General Public Licence. See the COPYING file.

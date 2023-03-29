@@ -1,0 +1,12 @@
+diff --git a/raster/scripts/plpgsql/_MapAlgebraParts.sql b/raster/scripts/plpgsql/_MapAlgebraParts.sql
+index 3c4f2c5ed..abafb7e8b 100644
+--- a/raster/scripts/plpgsql/_MapAlgebraParts.sql
++++ b/raster/scripts/plpgsql/_MapAlgebraParts.sql
+@@ -2,6 +2,7 @@
+ --
+ --
+ -- Copyright (c) 2009-2010 Pierre Racine <pierre.racine@sbf.ulaval.ca>
++-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ --
+ ----------------------------------------------------------------------
+ 

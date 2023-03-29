@@ -1,0 +1,12 @@
+diff --git a/extras/tiger_geocoder/create_geocode.sql b/extras/tiger_geocoder/create_geocode.sql
+index 085e6fcc1..0eb803d39 100644
+--- a/extras/tiger_geocoder/create_geocode.sql
++++ b/extras/tiger_geocoder/create_geocode.sql
+@@ -6,6 +6,7 @@
+ -- Copyright (C) 2008 Stephen Frost (et al)
+ -- reintegrated back into PostGIS code base from Steven's git (http://www.snowman.net/git/tiger_geocoder/)
+ -- Copyright Refractions Research
++-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ --
+ -- This is free software; you can redistribute and/or modify it under
+ -- the terms of the GNU General Public Licence. See the COPYING file.

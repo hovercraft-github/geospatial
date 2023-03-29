@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwgeom_geos_cluster.c b/liblwgeom/lwgeom_geos_cluster.c
+index 76c707f6f..04acec107 100644
+--- a/liblwgeom/lwgeom_geos_cluster.c
++++ b/liblwgeom/lwgeom_geos_cluster.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2015-2016 Daniel Baston <dbaston@gmail.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 
