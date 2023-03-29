@@ -1,0 +1,12 @@
+diff --git a/raster/rt_pg/rtpostgis_legacy.sql.in b/raster/rt_pg/rtpostgis_legacy.sql.in
+index b2a73b226..f559c8f43 100644
+--- a/raster/rt_pg/rtpostgis_legacy.sql.in
++++ b/raster/rt_pg/rtpostgis_legacy.sql.in
+@@ -6,6 +6,7 @@
+ --
+ -- Copyright (C) 2012 Regents of the University of California
+ --   <bkpark@ucdavis.edu>
++-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ --
+ -- This program is free software; you can redistribute it and/or
+ -- modify it under the terms of the GNU General Public License

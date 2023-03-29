@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/cunit/cu_print.c b/liblwgeom/cunit/cu_print.c
+index 319e39a29..ba65fcad7 100644
+--- a/liblwgeom/cunit/cu_print.c
++++ b/liblwgeom/cunit/cu_print.c
+@@ -3,6 +3,7 @@
+  * PostGIS - Spatial Types for PostgreSQL
+  * http://postgis.net
+  * Copyright 2008 Paul Ramsey
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

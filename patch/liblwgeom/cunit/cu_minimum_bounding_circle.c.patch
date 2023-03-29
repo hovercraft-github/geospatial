@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/cunit/cu_minimum_bounding_circle.c b/liblwgeom/cunit/cu_minimum_bounding_circle.c
+index 50e0395a0..b8d869fbb 100644
+--- a/liblwgeom/cunit/cu_minimum_bounding_circle.c
++++ b/liblwgeom/cunit/cu_minimum_bounding_circle.c
+@@ -3,6 +3,7 @@
+  * PostGIS - Spatial Types for PostgreSQL
+  * http://postgis.net
+  * Copyright 2015 Daniel Baston
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

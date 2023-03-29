@@ -1,0 +1,32 @@
+diff --git a/postgis/lwgeom_in_gml.c b/postgis/lwgeom_in_gml.c
+index 0e7f43aea..70a3c8157 100644
+--- a/postgis/lwgeom_in_gml.c
++++ b/postgis/lwgeom_in_gml.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2009 - 2010 Oslandia
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 
+@@ -61,6 +62,7 @@
+ #include "liblwgeom.h"
+ #include "lwgeom_transform.h"
+ 
++#include "libsrid.h"
+ 
+ Datum geom_from_gml(PG_FUNCTION_ARGS);
+ static LWGEOM* lwgeom_from_gml(const char *wkt);
+@@ -332,6 +334,11 @@ static int gml_is_srid_planar(int srid)
+ 	char *result;
+ 	char query[256];
+ 	int is_planar, err;
++        // Use in-memory lookup to by SQL if possible.
++        is_planar = is_srid_planar(srid);
++        if (is_planar != -1) {
++            return is_planar;
++        }
+ 
+ 	if (SPI_OK_CONNECT != SPI_connect ())
+ 		lwpgerror("gml_is_srid_planar: could not connect to SPI manager");

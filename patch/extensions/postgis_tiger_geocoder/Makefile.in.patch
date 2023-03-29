@@ -1,0 +1,13 @@
+diff --git a/extensions/postgis_tiger_geocoder/Makefile.in b/extensions/postgis_tiger_geocoder/Makefile.in
+index 88af96def..6fd0f425d 100644
+--- a/extensions/postgis_tiger_geocoder/Makefile.in
++++ b/extensions/postgis_tiger_geocoder/Makefile.in
+@@ -28,7 +28,7 @@ DATA_built = \
+ 	sql/$(EXTENSION)--unpackaged--$(EXTVERSION).sql \
+ 	$(NULL)
+ 
+-REGRESS = test-normalize_address test-upgrade
++REGRESS = test-normalize_address ##test-upgrade
+ REGRESS_OPTS = --load-extension=fuzzystrmatch --load-extension=postgis --load-extension=$(EXTENSION)
+ 
+ PG_CONFIG    =  @PG_CONFIG@

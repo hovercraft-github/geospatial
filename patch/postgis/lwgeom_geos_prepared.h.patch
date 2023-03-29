@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_geos_prepared.h b/postgis/lwgeom_geos_prepared.h
+index 6c8f8d852..4716fb846 100644
+--- a/postgis/lwgeom_geos_prepared.h
++++ b/postgis/lwgeom_geos_prepared.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2008 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

@@ -1,0 +1,12 @@
+diff --git a/raster/test/cunit/cu_raster_misc.c b/raster/test/cunit/cu_raster_misc.c
+index 705c3e441..65272db81 100644
+--- a/raster/test/cunit/cu_raster_misc.c
++++ b/raster/test/cunit/cu_raster_misc.c
+@@ -4,6 +4,7 @@
+  *
+  * Copyright (C) 2012 Regents of the University of California
+  *   <bkpark@ucdavis.edu>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License

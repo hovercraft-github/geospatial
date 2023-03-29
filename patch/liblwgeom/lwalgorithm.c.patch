@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwalgorithm.c b/liblwgeom/lwalgorithm.c
+index f81f49276..4514f0217 100644
+--- a/liblwgeom/lwalgorithm.c
++++ b/liblwgeom/lwalgorithm.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2008 Paul Ramsey
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

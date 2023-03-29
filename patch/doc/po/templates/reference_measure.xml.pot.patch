@@ -1,0 +1,13 @@
+diff --git a/doc/po/templates/reference_measure.xml.pot b/doc/po/templates/reference_measure.xml.pot
+index a59ca34ea..15d22c6ae 100644
+--- a/doc/po/templates/reference_measure.xml.pot
++++ b/doc/po/templates/reference_measure.xml.pot
+@@ -1880,7 +1880,7 @@ msgstr ""
+ #, no-c-format
+ msgid ""
+ ", <xref linkend=\"ST_ClusterIntersecting\"/>, <xref linkend="
+-"\"ST_ClusterWithin\"/>, <xref linkend=\"ST_Subdivide\"/>"
++"\"ST_ClusterWithin\"/>"
+ msgstr ""
+ 
+ #. Tag: refname

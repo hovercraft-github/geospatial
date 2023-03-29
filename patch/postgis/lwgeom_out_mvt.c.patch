@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_out_mvt.c b/postgis/lwgeom_out_mvt.c
+index 601237056..6b5e865b8 100644
+--- a/postgis/lwgeom_out_mvt.c
++++ b/postgis/lwgeom_out_mvt.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2016-2017 Björn Harrtell <bjorn@wololo.org>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

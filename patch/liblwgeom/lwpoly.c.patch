@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwpoly.c b/liblwgeom/lwpoly.c
+index 8f49d96ca..c9d272884 100644
+--- a/liblwgeom/lwpoly.c
++++ b/liblwgeom/lwpoly.c
+@@ -20,6 +20,7 @@
+  *
+  * Copyright (C) 2012 Sandro Santilli <strk@kbt.io>
+  * Copyright (C) 2001-2006 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

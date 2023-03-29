@@ -1,0 +1,89 @@
+diff --git a/raster/rt_pg/rtpg_mapalgebra.c b/raster/rt_pg/rtpg_mapalgebra.c
+index 4f20a81ab..2a12ad66e 100644
+--- a/raster/rt_pg/rtpg_mapalgebra.c
++++ b/raster/rt_pg/rtpg_mapalgebra.c
+@@ -11,6 +11,7 @@
+  * Copyright (C) 2009-2011 Mateusz Loskot <mateusz@loskot.net>
+  * Copyright (C) 2008-2009 Sandro Santilli <strk@kbt.io>
+  * Copyright (C) 2013 Nathaniel Hunter Clay <clay.nathaniel@gmail.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This program is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU General Public License
+@@ -933,10 +934,8 @@ Datum RASTER_nMapAlgebra(PG_FUNCTION_ARGS)
+ 			i = arg->numraster - 1;
+ 			break;
+ 		case ET_SECOND:
+-			if (arg->numraster > 1) {
+-				i = 1;
++			i = (arg->numraster > 1) ? 1 : 0;
+ 			break;
+-			}
+ 		default:
+ 			i = 0;
+ 			break;
+@@ -2118,8 +2117,8 @@ static int rtpg_union_noarg(rtpg_union_arg arg, rt_raster raster) {
+ PG_FUNCTION_INFO_V1(RASTER_union_transfn);
+ Datum RASTER_union_transfn(PG_FUNCTION_ARGS)
+ {
+-	MemoryContext aggcontext;
+-	MemoryContext oldcontext;
++	MemoryContext aggcontext = NULL;
++	MemoryContext oldcontext = NULL;
+ 	rtpg_union_arg iwr = NULL;
+ 	int skiparg = 0;
+ 
+@@ -2168,8 +2167,8 @@ Datum RASTER_union_transfn(PG_FUNCTION_ARGS)
+ 	if (PG_ARGISNULL(0)) {
+ 		POSTGIS_RT_DEBUG(3, "Creating state variable");
+ 		/* allocate container in aggcontext */
+-		iwr = palloc(sizeof(struct rtpg_union_arg_t));
+-		if (iwr == NULL) {
++		iwr = (rtpg_union_arg) palloc(sizeof(struct rtpg_union_arg_t));
++		if (NULL == iwr) {
+ 			MemoryContextSwitchTo(oldcontext);
+ 			elog(ERROR, "RASTER_union_transfn: Could not allocate memory for state variable");
+ 			PG_RETURN_NULL();
+@@ -2803,7 +2802,7 @@ Datum RASTER_union_transfn(PG_FUNCTION_ARGS)
+ PG_FUNCTION_INFO_V1(RASTER_union_finalfn);
+ Datum RASTER_union_finalfn(PG_FUNCTION_ARGS)
+ {
+-	rtpg_union_arg iwr;
++	rtpg_union_arg iwr = NULL;
+ 	rt_raster _rtn = NULL;
+ 	rt_raster _raster = NULL;
+ 	rt_pgraster *pgraster = NULL;
+@@ -4695,7 +4694,7 @@ Datum RASTER_mapAlgebraExpr(PG_FUNCTION_ARGS)
+         initexpr = (char *)palloc(len + 1);
+ 
+         strncpy(initexpr, "SELECT (", strlen("SELECT ("));
+-        strncpy(initexpr + strlen("SELECT ("), expression, strlen(expression));
++        memcpy(initexpr + strlen("SELECT ("), expression, strlen(expression));
+ 				strncpy(initexpr + strlen("SELECT (") + strlen(expression), ")::double precision", strlen(")::double precision"));
+         initexpr[len] = '\0';
+ 
+@@ -6025,7 +6024,7 @@ Datum RASTER_mapAlgebraFctNgb(PG_FUNCTION_ARGS)
+ 
+     /* pass the nodata mode into the user function */
+ #if POSTGIS_PGSQL_VERSION < 120
+-    cbdata.arg[1] = CStringGetDatum(txtCallbackParam);
++    cbdata.arg[1] = CStringGetDatum((char*)txtCallbackParam);
+ #else
+     cbdata->args[1].value = CStringGetDatum(txtCallbackParam);
+ #endif
+@@ -6826,7 +6825,7 @@ Datum RASTER_mapAlgebra2(PG_FUNCTION_ARGS)
+ 					}
+ 
+ 					strncpy(sql, "SELECT (", strlen("SELECT ("));
+-					strncpy(sql + strlen("SELECT ("), expr, strlen(expr));
++					memcpy(sql + strlen("SELECT ("), expr, strlen(expr));
+ 					strncpy(sql + strlen("SELECT (") + strlen(expr), ")::double precision", strlen(")::double precision"));
+ 					sql[len] = '\0';
+ 
+@@ -7400,4 +7399,4 @@ Datum RASTER_mapAlgebra2(PG_FUNCTION_ARGS)
+ 
+ 	SET_VARSIZE(pgrtn, pgrtn->size);
+ 	PG_RETURN_POINTER(pgrtn);
+-}
+\ No newline at end of file
++}

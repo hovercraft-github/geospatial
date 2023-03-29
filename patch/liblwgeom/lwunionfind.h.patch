@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwunionfind.h b/liblwgeom/lwunionfind.h
+index 34b2efd0e..cde4c06a0 100644
+--- a/liblwgeom/lwunionfind.h
++++ b/liblwgeom/lwunionfind.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2015 Daniel Baston <dbaston@gmail.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

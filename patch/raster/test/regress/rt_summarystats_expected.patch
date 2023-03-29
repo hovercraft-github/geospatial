@@ -1,0 +1,29 @@
+diff --git a/raster/test/regress/rt_summarystats_expected b/raster/test/regress/rt_summarystats_expected
+index 6a7ccb67b..2db3725d9 100644
+--- a/raster/test/regress/rt_summarystats_expected
++++ b/raster/test/regress/rt_summarystats_expected
+@@ -4,7 +4,6 @@
+ 100
+ -3.429|6.571
+ -0.069|1.046
+-NOTICE:  Invalid band index (must use 1-based). Returning NULL
+ |
+ NOTICE:  All pixels of band have the NODATA value
+ (0,,,,,)
+@@ -16,16 +15,6 @@ BEGIN
+ 20|-68.584|-3.429|6.571|-10.000|3.142
+ 20|-68.584|-3.429|6.571|-10.000|3.142
+ SAVEPOINT
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+-NOTICE:  Raster does not have band at index 2. Skipping raster
+ 0|||||
+ COMMIT
+ RELEASE

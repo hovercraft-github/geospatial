@@ -1,0 +1,12 @@
+diff --git a/loader/shpopen.c b/loader/shpopen.c
+index 160ec06d6..40ddb5ca9 100644
+--- a/loader/shpopen.c
++++ b/loader/shpopen.c
+@@ -6,6 +6,7 @@
+  *
+  ******************************************************************************
+  * Copyright (c) 1999, 2001, Frank Warmerdam
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This software is available under the following "MIT Style" license,
+  * or at the option of the licensee under the LGPL (see LICENSE.LGPL).  This

@@ -1,0 +1,12 @@
+diff --git a/raster/scripts/python/rtpixdump.py b/raster/scripts/python/rtpixdump.py
+index 2e0af0fac..183600ecd 100755
+--- a/raster/scripts/python/rtpixdump.py
++++ b/raster/scripts/python/rtpixdump.py
+@@ -5,6 +5,7 @@
+ # This utility is handy for debugging purposes.
+ #
+ # Copyright (C) 2009 Mateusz Loskot <mateusz@loskot.net>
++# Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ # 
+ # This program is free software; you can redistribute it and/or
+ # modify it under the terms of the GNU General Public License

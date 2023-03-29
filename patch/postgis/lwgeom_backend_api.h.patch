@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_backend_api.h b/postgis/lwgeom_backend_api.h
+index e5d29cd51..eeae70e5a 100644
+--- a/postgis/lwgeom_backend_api.h
++++ b/postgis/lwgeom_backend_api.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2012-2013 Oslandia <infos@oslandia.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

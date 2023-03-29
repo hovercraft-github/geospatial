@@ -1,0 +1,16 @@
+diff --git a/regress/regress_selectivity.sql b/regress/regress_selectivity.sql
+index 7094b8184..cd5f0bb70 100644
+--- a/regress/regress_selectivity.sql
++++ b/regress/regress_selectivity.sql
+@@ -1,5 +1,6 @@
+ -- Make example data
+ 
++SET client_min_messages TO warning;
+ CREATE TABLE regular_overdots_ab (
+     a integer,
+     b integer
+@@ -2184,3 +2185,4 @@ select 'selectivity_09', 'estimated', _postgis_selectivity('regular_overdots','g
+ drop table if exists regular_overdots;
+ drop table if exists regular_overdots_ab;
+ 
++SET client_min_messages TO NOTICE;

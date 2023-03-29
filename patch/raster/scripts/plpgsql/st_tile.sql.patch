@@ -1,0 +1,12 @@
+diff --git a/raster/scripts/plpgsql/st_tile.sql b/raster/scripts/plpgsql/st_tile.sql
+index 6a091a017..d4478d108 100644
+--- a/raster/scripts/plpgsql/st_tile.sql
++++ b/raster/scripts/plpgsql/st_tile.sql
+@@ -2,6 +2,7 @@
+ --
+ --
+ -- Copyright (c) 2009-2010 Pierre Racine <pierre.racine@sbf.ulaval.ca>
++-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ --
+ ----------------------------------------------------------------------
+ -- ST_Tile

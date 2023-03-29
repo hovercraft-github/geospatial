@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwhomogenize.c b/liblwgeom/lwhomogenize.c
+index 047b1e749..3e60a96c7 100644
+--- a/liblwgeom/lwhomogenize.c
++++ b/liblwgeom/lwhomogenize.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2010 Olivier Courtin <olivier.courtin@oslandia.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

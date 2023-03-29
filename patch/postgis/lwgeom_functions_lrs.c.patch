@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_functions_lrs.c b/postgis/lwgeom_functions_lrs.c
+index d5170c3da..95c22647e 100644
+--- a/postgis/lwgeom_functions_lrs.c
++++ b/postgis/lwgeom_functions_lrs.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2001-2005 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

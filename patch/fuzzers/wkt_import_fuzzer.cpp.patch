@@ -1,0 +1,20 @@
+diff --git a/fuzzers/wkt_import_fuzzer.cpp b/fuzzers/wkt_import_fuzzer.cpp
+index 112ca7d0d..9a26697f0 100644
+--- a/fuzzers/wkt_import_fuzzer.cpp
++++ b/fuzzers/wkt_import_fuzzer.cpp
+@@ -6,6 +6,7 @@
+  *
+  ******************************************************************************
+  * Copyright (c) 2017, Even Rouault <even.rouault at spatialys.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * Permission is hereby granted, free of charge, to any person obtaining a
+  * copy of this software and associated documentation files (the "Software"),
+@@ -40,6 +41,7 @@ extern "C"
+ #include "liblwgeom.h"
+ 
+ void GEOSCoordSeq_destroy() { assert(0); }
++/* FIX_ME_POSTGIS_254: Re-enable, when adding support for GEOS 3.5 */
+ void GEOSClipByRect() { assert(0); }
+ void GEOSUnion() { assert(0); }
+ void GEOSCoordSeq_getDimensions() { assert(0); }

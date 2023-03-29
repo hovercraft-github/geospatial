@@ -1,0 +1,12 @@
+diff --git a/postgis/geography_measurement.c b/postgis/geography_measurement.c
+index 5d3781421..5be5c0c08 100644
+--- a/postgis/geography_measurement.c
++++ b/postgis/geography_measurement.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

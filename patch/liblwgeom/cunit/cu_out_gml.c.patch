@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/cunit/cu_out_gml.c b/liblwgeom/cunit/cu_out_gml.c
+index a4e84fc2e..39d7a290b 100644
+--- a/liblwgeom/cunit/cu_out_gml.c
++++ b/liblwgeom/cunit/cu_out_gml.c
+@@ -4,6 +4,7 @@
+  * http://postgis.net
+  *
+  * Copyright 2010 Olivier Courtin <olivier.courtin@oslandia.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

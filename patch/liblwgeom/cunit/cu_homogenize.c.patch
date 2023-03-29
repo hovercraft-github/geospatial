@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/cunit/cu_homogenize.c b/liblwgeom/cunit/cu_homogenize.c
+index 2fbda97e4..2e07f2ece 100644
+--- a/liblwgeom/cunit/cu_homogenize.c
++++ b/liblwgeom/cunit/cu_homogenize.c
+@@ -3,6 +3,7 @@
+  * PostGIS - Spatial Types for PostgreSQL
+  * http://postgis.net
+  * Copyright 2009 Olivier Courtin <olivier.courtin@oslandia.com>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

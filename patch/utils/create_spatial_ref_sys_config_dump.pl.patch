@@ -1,0 +1,12 @@
+diff --git a/utils/create_spatial_ref_sys_config_dump.pl b/utils/create_spatial_ref_sys_config_dump.pl
+index 5714c5c76..27a51ad77 100755
+--- a/utils/create_spatial_ref_sys_config_dump.pl
++++ b/utils/create_spatial_ref_sys_config_dump.pl
+@@ -5,6 +5,7 @@
+ # http://postgis.net
+ #
+ # Copyright (C) 2016 Sandro Santilli <strk@kbt.io>
++# Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ #
+ # This is free software; you can redistribute and/or modify it under
+ # the terms of the GNU General Public Licence. See the COPYING file.

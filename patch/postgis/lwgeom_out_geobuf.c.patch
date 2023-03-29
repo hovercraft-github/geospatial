@@ -1,0 +1,12 @@
+diff --git a/postgis/lwgeom_out_geobuf.c b/postgis/lwgeom_out_geobuf.c
+index 1221fab5a..ff0091de2 100644
+--- a/postgis/lwgeom_out_geobuf.c
++++ b/postgis/lwgeom_out_geobuf.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2016-2017 Björn Harrtell <bjorn@wololo.org>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

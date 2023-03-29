@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwmline.c b/liblwgeom/lwmline.c
+index ab93026f2..c5530a77e 100644
+--- a/liblwgeom/lwmline.c
++++ b/liblwgeom/lwmline.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2001-2006 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

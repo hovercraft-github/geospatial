@@ -1,0 +1,12 @@
+diff --git a/postgis/sfcgal.sql.in b/postgis/sfcgal.sql.in
+index d06fd7734..fbc837ba4 100644
+--- a/postgis/sfcgal.sql.in
++++ b/postgis/sfcgal.sql.in
+@@ -2,6 +2,7 @@
+ --
+ -- PostGIS - SFCGAL functions
+ -- Copyright 2012-2013 Oslandia <infos@oslandia.com>
++-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ --
+ -- This is free software; you can redistribute and/or modify it under
+ -- the terms of the GNU General Public Licence. See the COPYING file.

@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/cunit/cu_filterm.c b/liblwgeom/cunit/cu_filterm.c
+index d516550a4..2e1d5a0d6 100644
+--- a/liblwgeom/cunit/cu_filterm.c
++++ b/liblwgeom/cunit/cu_filterm.c
+@@ -4,6 +4,7 @@
+  * http://postgis.net
+  *
+  * Copyright 2018 Nicklas Avén <nicklas.aven@jordogskog.no>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

@@ -1,0 +1,11 @@
+diff --git a/regress/quantize_coordinates_expected b/regress/quantize_coordinates_expected
+index 7c37d832b..0224e0f73 100644
+--- a/regress/quantize_coordinates_expected
++++ b/regress/quantize_coordinates_expected
+@@ -1,5 +1,5 @@
+ t1|t
+-ERROR:  Must specify precision
++ERROR:  Must specify precision (lwgeom_pg.c:128)
+ t3|t
+ t4|t
+ t5|t

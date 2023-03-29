@@ -1,0 +1,12 @@
+diff --git a/raster/test/regress/tickets_expected b/raster/test/regress/tickets_expected
+index d24857336..1efbeef13 100644
+--- a/raster/test/regress/tickets_expected
++++ b/raster/test/regress/tickets_expected
+@@ -1,7 +1,6 @@
+ #1485|0
+ #2532.1|
+ #2532.2|
+-NOTICE:  Raster has default geotransform. Adjusting metadata for use of GDAL Warp API
+ #2911|0|0|5|5|2|-2|0|0|0|1
+ t
+ test_raster_scale_regular|rast||1

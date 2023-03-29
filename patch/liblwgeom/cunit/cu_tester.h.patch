@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/cunit/cu_tester.h b/liblwgeom/cunit/cu_tester.h
+index c5e6ccfac..c8d7e8e1b 100644
+--- a/liblwgeom/cunit/cu_tester.h
++++ b/liblwgeom/cunit/cu_tester.h
+@@ -4,6 +4,7 @@
+  * http://postgis.net
+  *
+  * Copyright (C) 2009 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.

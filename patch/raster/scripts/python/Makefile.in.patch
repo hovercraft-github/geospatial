@@ -1,0 +1,12 @@
+diff --git a/raster/scripts/python/Makefile.in b/raster/scripts/python/Makefile.in
+index 4c5e102bf..25649ec16 100644
+--- a/raster/scripts/python/Makefile.in
++++ b/raster/scripts/python/Makefile.in
+@@ -1,6 +1,7 @@
+ #############################################################################
+ #
+ # Copyright (c) 2009 Pierre Racine <pierre.racine@sbf.ulaval.ca>
++# Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ #
+ # This program is free software; you can redistribute it and/or
+ # modify it under the terms of the GNU General Public License

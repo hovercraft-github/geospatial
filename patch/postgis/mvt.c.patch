@@ -1,0 +1,27 @@
+diff --git a/postgis/mvt.c b/postgis/mvt.c
+index 333db09c4..7c82039de 100644
+--- a/postgis/mvt.c
++++ b/postgis/mvt.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2016-2017 Björn Harrtell <bjorn@wololo.org>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 
+@@ -998,8 +999,12 @@ mvt_grid_and_validate_geos(LWGEOM *ng, uint8_t basic_type)
+ 
+ 		while (!valid && iterations < max_iterations)
+ 		{
+-			GEOSGeometry *geo_valid = LWGEOM_GEOS_makeValid(geo);
+-			GEOSGeom_destroy(geo);
++#if POSTGIS_GEOS_VERSION < 38
++		    GEOSGeometry *geo_valid = LWGEOM_GEOS_makeValid(geo);
++#else
++		    GEOSGeometry *geo_valid = GEOSMakeValid(geo);
++#endif
++		    GEOSGeom_destroy(geo);
+ 			if (!geo_valid)
+ 				return NULL;
+ 

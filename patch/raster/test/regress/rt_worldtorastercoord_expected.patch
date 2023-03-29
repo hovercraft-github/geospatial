@@ -1,0 +1,114 @@
+diff --git a/raster/test/regress/rt_worldtorastercoord_expected b/raster/test/regress/rt_worldtorastercoord_expected
+index b56eb4b1d..10717c920 100644
+--- a/raster/test/regress/rt_worldtorastercoord_expected
++++ b/raster/test/regress/rt_worldtorastercoord_expected
+@@ -159,10 +159,6 @@
+ 13|1
+ 14|1
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|1
+ 1|-1
+ 2|-2
+@@ -174,10 +170,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|3
+ 1|1
+ 2|0
+@@ -189,10 +181,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|4
+ 1|2
+ 2|1
+@@ -204,10 +192,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|4
+ 1|2
+ 2|1
+@@ -219,10 +203,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|5
+ 1|3
+ 2|2
+@@ -294,10 +274,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|1
+ 14|1
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|1
+ 1|-1
+ 2|0
+@@ -309,10 +285,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|3
+ 1|1
+ 2|2
+@@ -324,10 +296,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|4
+ 1|2
+ 2|3
+@@ -339,10 +307,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|4
+ 1|2
+ 2|3
+@@ -354,10 +318,6 @@ NOTICE:  Latitude and longitude required for computing pixel row and column of a
+ 13|
+ 14|
+ NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+-NOTICE:  Latitude and longitude required for computing pixel row and column of a rotated raster
+ 0|5
+ 1|3
+ 2|4

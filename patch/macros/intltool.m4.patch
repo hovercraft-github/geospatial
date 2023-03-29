@@ -1,0 +1,12 @@
+diff --git a/macros/intltool.m4 b/macros/intltool.m4
+index 122d773da..91b494ed9 100644
+--- a/macros/intltool.m4
++++ b/macros/intltool.m4
+@@ -2,6 +2,7 @@
+ ## Copyright (C) 2001 Eazel, Inc.
+ ## Author: Maciej Stachowiak <mjs@noisehavoc.org>
+ ##         Kenneth Christiansen <kenneth@gnu.org>
++## Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+ ##
+ ## This program is free software; you can redistribute it and/or modify
+ ## it under the terms of the GNU General Public License as published by

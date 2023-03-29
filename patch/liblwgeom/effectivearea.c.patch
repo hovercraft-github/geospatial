@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/effectivearea.c b/liblwgeom/effectivearea.c
+index e9859218d..1b6dc4d74 100644
+--- a/liblwgeom/effectivearea.c
++++ b/liblwgeom/effectivearea.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2014 Nicklas Avén
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

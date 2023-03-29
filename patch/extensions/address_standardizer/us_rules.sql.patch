@@ -1,0 +1,12 @@
+diff --git a/extensions/address_standardizer/us_rules.sql b/extensions/address_standardizer/us_rules.sql
+index c6d533f7f..a5437293d 100644
+--- a/extensions/address_standardizer/us_rules.sql
++++ b/extensions/address_standardizer/us_rules.sql
+@@ -1,6 +1,6 @@
+ CREATE TABLE IF NOT EXISTS us_rules (
+     id serial, rule text, is_custom boolean NOT NULL DEFAULT true, CONSTRAINT pk_us_rules PRIMARY KEY(id)
+-);
++)DISTRIBUTED REPLICATED;
+ 
+ -- this will be needed for upgrading to prevent purging of custom entries
+ DELETE FROM us_rules WHERE is_custom = false;

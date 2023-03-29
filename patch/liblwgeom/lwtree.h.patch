@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwtree.h b/liblwgeom/lwtree.h
+index 0aa4cf31d..c45e7eaac 100644
+--- a/liblwgeom/lwtree.h
++++ b/liblwgeom/lwtree.h
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright (C) 2009-2012 Paul Ramsey <pramsey@cleverelephant.ca>
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

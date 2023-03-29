@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwmval.c b/liblwgeom/lwmval.c
+index 078080195..5ba94ed00 100644
+--- a/liblwgeom/lwmval.c
++++ b/liblwgeom/lwmval.c
+@@ -20,6 +20,7 @@
+  **********************************************************************
+  *
+  * Copyright 2018 Nicklas Avén
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

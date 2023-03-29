@@ -1,0 +1,12 @@
+diff --git a/doc/xsl/tiger_geocoder_cheatsheet.html.xsl b/doc/xsl/tiger_geocoder_cheatsheet.html.xsl
+index a1d4661e0..a372d8d22 100644
+--- a/doc/xsl/tiger_geocoder_cheatsheet.html.xsl
++++ b/doc/xsl/tiger_geocoder_cheatsheet.html.xsl
+@@ -3,6 +3,7 @@
+ <!-- ********************************************************************
+      ********************************************************************
+ 	 Copyright 2011, Regina Obe
++	 Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+      License: BSD
+ 	 Purpose: This is an xsl transform that generates PostgreSQL COMMENT ON FUNCTION ddl
+ 	 statements from postgis xml doc reference

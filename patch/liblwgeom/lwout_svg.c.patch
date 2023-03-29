@@ -1,0 +1,12 @@
+diff --git a/liblwgeom/lwout_svg.c b/liblwgeom/lwout_svg.c
+index ca1645cdd..1abc32860 100644
+--- a/liblwgeom/lwout_svg.c
++++ b/liblwgeom/lwout_svg.c
+@@ -19,6 +19,7 @@
+  **********************************************************************
+  *
+  * Copyright 2001-2003 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  **********************************************************************/
+ 

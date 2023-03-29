@@ -1,0 +1,12 @@
+diff --git a/loader/pgsql2shp-cli.c b/loader/pgsql2shp-cli.c
+index 7c5c064cd..107a27b3c 100644
+--- a/loader/pgsql2shp-cli.c
++++ b/loader/pgsql2shp-cli.c
+@@ -3,6 +3,7 @@
+  * PostGIS - Spatial Types for PostgreSQL
+  * http://postgis.net
+  * Copyright 2001-2003 Refractions Research Inc.
++ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
+  *
+  * This is free software; you can redistribute and/or modify it under
+  * the terms of the GNU General Public Licence. See the COPYING file.
