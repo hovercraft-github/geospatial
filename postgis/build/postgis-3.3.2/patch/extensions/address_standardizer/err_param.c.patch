@@ -1,7 +1,7 @@
-diff --git a/extensions/address_standardizer/err_param.c b/extensions/address_standardizer/err_param.c
+diff --git a/postgis/build/postgis-3.3.2/extensions/address_standardizer/err_param.c b/postgis/build/postgis-3.3.2/extensions/address_standardizer/err_param.c
 index 05a713b4f..38fb14952 100644
---- a/extensions/address_standardizer/err_param.c
-+++ b/extensions/address_standardizer/err_param.c
+--- a/postgis/build/postgis-3.3.2/extensions/address_standardizer/err_param.c
++++ b/postgis/build/postgis-3.3.2/extensions/address_standardizer/err_param.c
 @@ -5,6 +5,7 @@ This file handles the buffering and output of errors
  Prototype 7H08 (This file was written by Walter Sinclair).
  

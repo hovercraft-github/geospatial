@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2022 Martin Davis
  * Copyright 2008 Kevin Neufeld
+ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
  *
  * This is free software; you can redistribute and/or modify it under
  * the terms of the GNU General Public Licence. See the COPYING file.

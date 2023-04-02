@@ -4,6 +4,7 @@
  * http://postgis.net
  *
  * Copyright (C) 2001-2003 Refractions Research Inc.
+ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
  *
  * This is free software; you can redistribute and/or modify it under
  * the terms of the GNU General Public Licence. See the COPYING file.
@@ -26,6 +27,7 @@
 #include "lwgeom_pg.h"
 #include "lwgeom_cache.h"
 #include "lwgeom_transform.h"
+#include "libsrid.h"
 
 /* C headers */
 #include <float.h>
@@ -181,6 +183,16 @@ GetProjStringsSPI(int32_t srid)
 	char proj_spi_buffer[spibufferlen];
 	PjStrs strs;
 	memset(&strs, 0, sizeof(strs));
+
+    /* In GPDB, we don't support the SRID retrieving from spatial_ref_sys,
+     *  otherwise we will meet the known issue: cannot access relation from segments.
+     *  so we search static hash table firstly to by-pass this issue issue.
+     */
+	char *proj4_string = getProj4StringStatic(srid);
+	if (proj4_string != NULL) {
+		strncpy(proj_str, proj4_string, maxproj4len - 1);
+		return proj_str;
+	}
 
 	/* Connect */
 	spi_result = SPI_connect();

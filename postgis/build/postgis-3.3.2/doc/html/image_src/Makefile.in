@@ -5,6 +5,7 @@
 # *
 # * Copyright (C) 2022 Sandro Santilli <strk@kbt.io>
 # * Copyright 2008 Kevin Neufeld
+# * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
 # *
 # * This is free software; you can redistribute and/or modify it under
 # * the terms of the GNU General Public Licence. See the COPYING file.
@@ -162,8 +163,6 @@ IMAGES= \
 	../images/st_simplifypolygonhull03.png \
 	../images/st_straightskeleton01.png \
 	../images/st_approximatemedialaxis01.png \
-	../images/st_subdivide01.png \
-	../images/st_subdivide02.png \
 	../images/st_symdifference01.png \
 	../images/st_symdifference02.png \
 	../images/st_tesselate03.png \

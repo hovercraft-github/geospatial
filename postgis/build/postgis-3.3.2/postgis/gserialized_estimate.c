@@ -909,28 +909,6 @@ pg_nd_stats_from_tuple(HeapTuple stats_tuple, int mode)
 
     /* Then read the geom status histogram from that */
 
-#if POSTGIS_PGSQL_VERSION < 100
-	{
-		float4 *floatptr;
-		int nvalues;
-
-		rv = get_attstatsslot(stats_tuple, 0, 0, stats_kind, InvalidOid,
-							NULL, NULL, NULL, &floatptr, &nvalues);
-
-		if ( ! rv ) {
-			POSTGIS_DEBUGF(2, "no slot of kind %d in stats tuple", stats_kind);
-			return NULL;
-		}
-
-		/* Clone the stats here so we can release the attstatsslot immediately */
-		nd_stats = palloc(sizeof(float) * nvalues);
-		memcpy(nd_stats, floatptr, sizeof(float) * nvalues);
-
-		/* Clean up */
-		free_attstatsslot(0, NULL, 0, floatptr, nvalues);
-	}
-#else /* PostgreSQL 10 or higher */
-	{
 		AttStatsSlot sslot;
 		rv = get_attstatsslot(&sslot, stats_tuple, stats_kind, InvalidOid,
 							 ATTSTATSSLOT_NUMBERS);
@@ -944,8 +922,6 @@ pg_nd_stats_from_tuple(HeapTuple stats_tuple, int mode)
 		memcpy(nd_stats, sslot.numbers, sizeof(float4) * sslot.nnumbers);
 
 		free_attstatsslot(&sslot);
-	}
-#endif
 
 	return nd_stats;
 }
@@ -2604,9 +2580,12 @@ Datum _postgis_gserialized_index_extent(PG_FUNCTION_ARGS)
 		PG_RETURN_NULL();
 
 	gbox = spatial_index_read_extent(idx_oid, key_type, att_num);
-	if (!gbox)
+	if (!gbox){
 		PG_RETURN_NULL();
-	else
+	}
+	else{
+		elog(WARNING, "got pointer");
 		PG_RETURN_POINTER(gbox);
+	}
 }
 

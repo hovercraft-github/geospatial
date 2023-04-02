@@ -21,6 +21,7 @@
  * Copyright 2011-2020 Sandro Santilli <strk@kbt.io>
  * Copyright 2015-2018 Daniel Baston <dbaston@gmail.com>
  * Copyright 2017-2018 Darafei Praliaskouski <me@komzpa.net>
+ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
  *
  **********************************************************************/
 
@@ -919,7 +920,7 @@ lwgeom_symdifference_prec(const LWGEOM* geom1, const LWGEOM* geom2, double prec)
 	/* Empty.DymDifference(B) == B */
 	if (lwgeom_is_empty(geom1)) return lwgeom_clone_deep(geom2);
 
-	initGEOS(lwnotice, lwgeom_geos_error);
+ 	initGEOS(lwnotice, lwgeom_geos_error);
 
 	if (!(g1 = LWGEOM2GEOS(geom1, AUTOFIX))) GEOS_FAIL();
 	if (!(g2 = LWGEOM2GEOS(geom2, AUTOFIX))) GEOS_FREE_AND_FAIL(g1);
@@ -1108,31 +1109,31 @@ lwgeom_clip_by_rect(const LWGEOM *geom1, double x1, double y1, double x2, double
 	GEOSGeometry *g1, *g3;
 	int is3d;
 
-	/* A.Intersection(Empty) == Empty */
-	if ( lwgeom_is_empty(geom1) )
-		return lwgeom_clone_deep(geom1);
+ 	/* A.Intersection(Empty) == Empty */
+ 	if ( lwgeom_is_empty(geom1) )
+ 		return lwgeom_clone_deep(geom1);
 
-	is3d = FLAGS_GET_Z(geom1->flags);
+ 	is3d = FLAGS_GET_Z(geom1->flags);
 
 	initGEOS(lwnotice, lwgeom_geos_error);
 
-	if (!(g1 = LWGEOM2GEOS(geom1, AUTOFIX)))
-		GEOS_FAIL_DEBUG();
+ 	if (!(g1 = LWGEOM2GEOS(geom1, AUTOFIX)))
+ 		GEOS_FAIL_DEBUG();
 
-	if (!(g3 = GEOSClipByRect(g1, x1, y1, x2, y2)))
-		GEOS_FREE_AND_FAIL_DEBUG(g1);
+ 	if (!(g3 = GEOSClipByRect(g1, x1, y1, x2, y2)))
+ 		GEOS_FREE_AND_FAIL_DEBUG(g1);
 
-	GEOS_FREE(g1);
-	result = GEOS2LWGEOM(g3, is3d);
-	GEOS_FREE(g3);
+ 	GEOS_FREE(g1);
+ 	result = GEOS2LWGEOM(g3, is3d);
+ 	GEOS_FREE(g3);
 
-	if (!result)
-		GEOS_FAIL_DEBUG();
+ 	if (!result)
+ 		GEOS_FAIL_DEBUG();
 
-	result->srid = geom1->srid;
+ 	result->srid = geom1->srid;
 
-	return result;
-}
+ 	return result;
+ }
 
 /* ------------ BuildArea stuff ---------------------------------------------------------------------{ */
 #if POSTGIS_GEOS_VERSION < 30800
@@ -2097,19 +2098,19 @@ lwgeom_voronoi_diagram(const LWGEOM* g, const GBOX* env, double tolerance, int o
 	GEOSGeom_destroy(geos_geom);
 	if (env) GEOSGeom_destroy(geos_env);
 
-	if (!geos_result)
-	{
-		lwerror("GEOSVoronoiDiagram: %s", lwgeom_geos_errmsg);
-		return NULL;
-	}
+ 	if (!geos_result)
+ 	{
+ 		lwerror("GEOSVoronoiDiagram: %s", lwgeom_geos_errmsg);
+ 		return NULL;
+ 	}
 
-	lwgeom_result = GEOS2LWGEOM(geos_result, is_3d);
-	GEOSGeom_destroy(geos_result);
+ 	lwgeom_result = GEOS2LWGEOM(geos_result, is_3d);
+ 	GEOSGeom_destroy(geos_result);
 
-	lwgeom_set_srid(lwgeom_result, srid);
+ 	lwgeom_set_srid(lwgeom_result, srid);
 
-	return lwgeom_result;
-}
+ 	return lwgeom_result;
+ }
 
 
 #if POSTGIS_GEOS_VERSION >= 31100

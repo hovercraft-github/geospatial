@@ -1,6 +1,6 @@
 -- tests for ST_ClusterIntersecting and ST_ClusterWithin
 
-CREATE TEMPORARY TABLE cluster_inputs (id int, geom geometry);
+CREATE TEMPORARY TABLE cluster_inputs (id int, geom geometry) DISTRIBUTED BY (id);
 INSERT INTO cluster_inputs VALUES
 (1, 'LINESTRING (0 0, 1 1)'),
 (2, 'LINESTRING (5 5, 4 4)'),
@@ -17,7 +17,7 @@ SELECT 't4', ST_AsText(unnest(ST_ClusterWithin(array_agg(geom ORDER BY id), 1.5)
 
 -- tests for ST_DBSCAN
 
-CREATE TEMPORARY TABLE dbscan_inputs (id int, geom geometry);
+CREATE TEMPORARY TABLE dbscan_inputs (id int, geom geometry) DISTRIBUTED BY (id);
 INSERT INTO dbscan_inputs VALUES
 (1, 'POINT (0 0)'),
 (2, 'POINT (0 1)'),
@@ -27,10 +27,10 @@ INSERT INTO dbscan_inputs VALUES
 (6, 'POINT (1.0 0.5)');
 
 /* minpoints = 1, equivalent to ST_ClusterWithin */
-SELECT 't101', id, ST_ClusterDBSCAN(geom, eps := 0.8, minpoints := 1) OVER () from dbscan_inputs;
+SELECT 't101', id, ST_ClusterDBSCAN(geom, eps := 0.8, minpoints := 1) OVER (ORDER BY id) from dbscan_inputs ORDER BY id;
 
 /* minpoints = 4, no clusters */
-SELECT 't102', id, ST_ClusterDBSCAN(geom, eps := 0.8, minpoints := 4) OVER () from dbscan_inputs;
+SELECT 't102', id, ST_ClusterDBSCAN(geom, eps := 0.8, minpoints := 4) OVER () from dbscan_inputs ORDER BY id;
 
 /* minpoints = 3, but eps too small to form cluster on left */
 SELECT 't103', id, ST_ClusterDBSCAN(geom, eps := 0.6, minpoints := 3) OVER () from dbscan_inputs;

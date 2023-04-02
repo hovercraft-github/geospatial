@@ -1,5 +1,6 @@
 # intl.m4 serial 44 (gettext-0.21)
 dnl Copyright (C) 1995-2014, 2016-2020 Free Software Foundation, Inc.
+dnl Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.

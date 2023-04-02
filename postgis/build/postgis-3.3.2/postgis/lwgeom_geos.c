@@ -21,6 +21,7 @@
  * Copyright 2009-2014 Sandro Santilli <strk@kbt.io>
  * Copyright 2008 Paul Ramsey <pramsey@cleverelephant.ca>
  * Copyright 2001-2003 Refractions Research Inc.
+ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
  *
  **********************************************************************/
 
@@ -2984,6 +2985,7 @@ Datum clusterintersecting_garray(PG_FUNCTION_ARGS)
 PG_FUNCTION_INFO_V1(cluster_within_distance_garray);
 Datum cluster_within_distance_garray(PG_FUNCTION_ARGS)
 {
+
 	Datum* result_array_data;
 	ArrayType *array, *result;
 	int is3d = 0;
@@ -3011,6 +3013,7 @@ Datum cluster_within_distance_garray(PG_FUNCTION_ARGS)
 		PG_RETURN_NULL();
 	}
 
+
 	nelems = array_nelems_not_null(array);
 
 	POSTGIS_DEBUGF(3, "cluster_within_distance_garray: number of non-null elements: %d", nelems);
@@ -3030,14 +3033,15 @@ Datum cluster_within_distance_garray(PG_FUNCTION_ARGS)
 
 	if (cluster_within_distance(lw_inputs, nelems, tolerance, &lw_results, &nclusters) != LW_SUCCESS)
 	{
-		elog(ERROR, "cluster_within: Error performing clustering");
 		PG_RETURN_NULL();
 	}
+
 	pfree(lw_inputs); /* don't need to destroy items because GeometryCollections have taken ownership */
 
 	if (!lw_results) PG_RETURN_NULL();
 
 	result_array_data = palloc(nclusters * sizeof(Datum));
+
 	for (i=0; i<nclusters; ++i)
 	{
 		result_array_data[i] = PointerGetDatum(geometry_serialize(lw_results[i]));
@@ -3050,7 +3054,6 @@ Datum cluster_within_distance_garray(PG_FUNCTION_ARGS)
 
 	if (!result)
 	{
-		elog(ERROR, "clusterwithin: Error constructing return-array");
 		PG_RETURN_NULL();
 	}
 
@@ -3367,88 +3370,89 @@ Datum ST_Node(PG_FUNCTION_ARGS)
  * from the points of the input geometry.
  *
  ******************************************/
-Datum ST_Voronoi(PG_FUNCTION_ARGS);
-PG_FUNCTION_INFO_V1(ST_Voronoi);
-Datum ST_Voronoi(PG_FUNCTION_ARGS)
-{
-	GSERIALIZED* input;
-	GSERIALIZED* clip;
-	GSERIALIZED* result;
-	LWGEOM* lwgeom_input;
-	LWGEOM* lwgeom_result;
-	double tolerance;
-	GBOX clip_envelope;
-	int custom_clip_envelope;
-	int return_polygons;
+/* FIX_ME_POSTGIS_254: Re-enable, when adding support for GEOS 3.5 */
+ Datum ST_Voronoi(PG_FUNCTION_ARGS);
+ PG_FUNCTION_INFO_V1(ST_Voronoi);
+ Datum ST_Voronoi(PG_FUNCTION_ARGS)
+ {
+ 	GSERIALIZED* input;
+ 	GSERIALIZED* clip;
+ 	GSERIALIZED* result;
+ 	LWGEOM* lwgeom_input;
+ 	LWGEOM* lwgeom_result;
+ 	double tolerance;
+ 	GBOX clip_envelope;
+ 	int custom_clip_envelope;
+ 	int return_polygons;
 
-	/* Return NULL on NULL geometry */
-	if (PG_ARGISNULL(0))
-		PG_RETURN_NULL();
+ 	/* Return NULL on NULL geometry */
+ 	if (PG_ARGISNULL(0))
+ 		PG_RETURN_NULL();
 
-	/* Read our tolerance value */
-	if (PG_ARGISNULL(2))
-	{
-		lwpgerror("Tolerance must be a positive number.");
-		PG_RETURN_NULL();
-	}
+ 	/* Read our tolerance value */
+ 	if (PG_ARGISNULL(2))
+ 	{
+ 		lwpgerror("Tolerance must be a positive number.");
+ 		PG_RETURN_NULL();
+ 	}
 
-	tolerance = PG_GETARG_FLOAT8(2);
+ 	tolerance = PG_GETARG_FLOAT8(2);
 
-	if (tolerance < 0)
-	{
-		lwpgerror("Tolerance must be a positive number.");
-		PG_RETURN_NULL();
-	}
+ 	if (tolerance < 0)
+ 	{
+ 		lwpgerror("Tolerance must be a positive number.");
+ 		PG_RETURN_NULL();
+ 	}
 
-	/* Are we returning lines or polygons? */
-	if (PG_ARGISNULL(3))
-	{
-		lwpgerror("return_polygons must be true or false.");
-		PG_RETURN_NULL();
-	}
-	return_polygons = PG_GETARG_BOOL(3);
+ 	/* Are we returning lines or polygons? */
+ 	if (PG_ARGISNULL(3))
+ 	{
+ 		lwpgerror("return_polygons must be true or false.");
+ 		PG_RETURN_NULL();
+ 	}
+ 	return_polygons = PG_GETARG_BOOL(3);
 
-	/* Read our clipping envelope, if applicable. */
-	custom_clip_envelope = !PG_ARGISNULL(1);
-	if (custom_clip_envelope) {
-		clip = PG_GETARG_GSERIALIZED_P(1);
-		if (!gserialized_get_gbox_p(clip, &clip_envelope))
-		{
-			lwpgerror("Could not determine envelope of clipping geometry.");
-			PG_FREE_IF_COPY(clip, 1);
-			PG_RETURN_NULL();
-		}
-		PG_FREE_IF_COPY(clip, 1);
-	}
+ 	/* Read our clipping envelope, if applicable. */
+ 	custom_clip_envelope = !PG_ARGISNULL(1);
+ 	if (custom_clip_envelope) {
+ 		clip = PG_GETARG_GSERIALIZED_P(1);
+ 		if (!gserialized_get_gbox_p(clip, &clip_envelope))
+ 		{
+ 			lwpgerror("Could not determine envelope of clipping geometry.");
+ 			PG_FREE_IF_COPY(clip, 1);
+ 			PG_RETURN_NULL();
+ 		}
+ 		PG_FREE_IF_COPY(clip, 1);
+ 	}
 
-	/* Read our input geometry */
-	input = PG_GETARG_GSERIALIZED_P(0);
+ 	/* Read our input geometry */
+ 	input = PG_GETARG_GSERIALIZED_P(0);
 
-	lwgeom_input = lwgeom_from_gserialized(input);
+ 	lwgeom_input = lwgeom_from_gserialized(input);
 
-	if(!lwgeom_input)
-	{
-		lwpgerror("Could not read input geometry.");
-		PG_FREE_IF_COPY(input, 0);
-		PG_RETURN_NULL();
-	}
+ 	if(!lwgeom_input)
+ 	{
+ 		lwpgerror("Could not read input geometry.");
+ 		PG_FREE_IF_COPY(input, 0);
+ 		PG_RETURN_NULL();
+ 	}
 
-	lwgeom_result = lwgeom_voronoi_diagram(lwgeom_input, custom_clip_envelope ? &clip_envelope : NULL, tolerance, !return_polygons);
-	lwgeom_free(lwgeom_input);
+ 	lwgeom_result = lwgeom_voronoi_diagram(lwgeom_input, custom_clip_envelope ? &clip_envelope : NULL, tolerance, !return_polygons);
+ 	lwgeom_free(lwgeom_input);
 
-	if (!lwgeom_result)
-	{
-		lwpgerror("Error computing Voronoi diagram.");
-		PG_FREE_IF_COPY(input, 0);
-		PG_RETURN_NULL();
-	}
+ 	if (!lwgeom_result)
+ 	{
+ 		lwpgerror("Error computing Voronoi diagram.");
+ 		PG_FREE_IF_COPY(input, 0);
+ 		PG_RETURN_NULL();
+ 	}
 
-	result = geometry_serialize(lwgeom_result);
-	lwgeom_free(lwgeom_result);
+ 	result = geometry_serialize(lwgeom_result);
+ 	lwgeom_free(lwgeom_result);
 
-	PG_FREE_IF_COPY(input, 0);
-	PG_RETURN_POINTER(result);
-}
+ 	PG_FREE_IF_COPY(input, 0);
+ 	PG_RETURN_POINTER(result);
+ }
 
 /******************************************
  *

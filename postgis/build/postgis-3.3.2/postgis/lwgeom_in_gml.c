@@ -19,6 +19,7 @@
  **********************************************************************
  *
  * Copyright 2009 - 2010 Oslandia
+ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
  *
  **********************************************************************/
 
@@ -60,6 +61,7 @@
 #include "liblwgeom.h"
 #include "lwgeom_transform.h"
 
+#include "libsrid.h"
 
 Datum geom_from_gml(PG_FUNCTION_ARGS);
 static LWGEOM *lwgeom_from_gml(const char *wkt, int xml_size);

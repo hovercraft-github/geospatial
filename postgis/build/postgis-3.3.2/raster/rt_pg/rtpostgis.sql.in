@@ -13,6 +13,7 @@
 -- Copyright (c) 2011-2013 Regents of the University of California
 --   <bkpark@ucdavis.edu>
 -- Copyright (c) 2013-2017 Bborie Park <dustymugs@gmail.com>
+-- Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -93,12 +94,24 @@ CREATE OR REPLACE FUNCTION raster_out(raster)
     AS 'MODULE_PATHNAME','RASTER_out'
     LANGUAGE 'c' IMMUTABLE STRICT PARALLEL SAFE;
 
+CREATE OR REPLACE FUNCTION raster_recv(internal)
+    RETURNS raster
+    AS 'MODULE_PATHNAME','RASTER_recv'
+    LANGUAGE 'c' IMMUTABLE STRICT;
+
+CREATE OR REPLACE FUNCTION raster_send(raster)
+    RETURNS bytea
+    AS 'MODULE_PATHNAME','RASTER_send'
+    LANGUAGE 'c' IMMUTABLE STRICT;
+
 -- Availability: 2.0.0
 CREATE TYPE raster (
     alignment = double,
     internallength = variable,
     input = raster_in,
     output = raster_out,
+    send = raster_send,
+    receive = raster_recv,
     storage = extended
 );
 

@@ -867,7 +867,7 @@ SELECT ST_Distance('LINESTRING(-122.33 47.606, 0.0 51.5)'::geometry, 'POINT(-21.
 						and tests (distance, containment) have to traverse the vertex list at least once and sometimes N times
 						(with N being the number of vertices in the other candidate feature).
 					</para>
-					<para>As with GEOMETRY, we recommend that when you have very large polygons, but are doing queries in small areas, you "denormalize" your geometric data into smaller chunks so that the index can effectively subquery parts of the object and so queries don't have to pull out the whole object every time. Please consult <xref linkend="ST_Subdivide" /> function documentation.
+					<para>As with GEOMETRY, we recommend that when you have very large polygons, but are doing queries in small areas, you "denormalize" your geometric data into smaller chunks so that the index can effectively subquery parts of the object and so queries don't have to pull out the whole object every time.
 					Just because you *can* store all of Europe in one polygon doesn't mean you *should*.</para>
 				  </answer>
 				</qandaentry>

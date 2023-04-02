@@ -19,6 +19,7 @@
  **********************************************************************
  *
  * Copyright 2009 Paul Ramsey <pramsey@opengeo.org>
+ * Modifications Copyright (c) 2017 - Present Pivotal Software, Inc. All Rights Reserved.
  *
  **********************************************************************/
 
@@ -318,10 +319,8 @@ pgis_geometry_clusterwithin_finalfn(PG_FUNCTION_ARGS)
 
 	if (!p->data[0])
 	{
-		elog(ERROR, "Tolerance not defined");
 		PG_RETURN_NULL();
 	}
-
 	geometry_array = pgis_accum_finalfn(p, CurrentMemoryContext, fcinfo);
 	result = PGISDirectFunctionCall2( cluster_within_distance_garray, geometry_array, p->data[0]);
 	if (!result)
