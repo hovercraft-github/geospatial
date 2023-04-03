@@ -1,3 +1,4 @@
+SET client_min_messages TO WARNING;
 DROP TABLE IF EXISTS raster_asraster_geom;
 DROP TABLE IF EXISTS raster_asraster_rast;
 DROP TABLE IF EXISTS raster_asraster_dst;
@@ -494,7 +495,8 @@ FROM (
 	FROM raster_asraster_dst d
 	CROSS JOIN raster_asraster_rast r
 	ORDER BY d.rid
-) foo;
+) foo
+ORDER BY rid;
 
 DELETE FROM "spatial_ref_sys" WHERE srid = 992163;
 DELETE FROM "spatial_ref_sys" WHERE srid = 993309;
@@ -504,3 +506,5 @@ DELETE FROM "spatial_ref_sys" WHERE srid = 994269;
 DROP TABLE raster_asraster_geom;
 DROP TABLE raster_asraster_rast;
 DROP TABLE raster_asraster_dst;
+
+RESET client_min_messages;

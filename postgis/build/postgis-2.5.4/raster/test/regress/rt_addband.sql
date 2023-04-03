@@ -244,7 +244,7 @@ CREATE TABLE raster1 AS
 			ST_MakeEmptyRaster(90, 90, 0., 0., 1, -1, 0, 0, 0),
 			1, foo1.path, NULL::int[]
 		) AS rast
-	FROM foo1;
+	FROM foo1 DISTRIBUTED REPLICATED;
 
 SET postgis.gdal_enabled_drivers = 'GTiff';
 SET postgis.enable_outdb_rasters = true;

@@ -63,6 +63,13 @@ char * getSRSbySRID(int srid, bool short_crs)
 	char *srs, *srscopy;
 	int size, err;
 
+	if (SPI_OK_CONNECT != SPI_connect ())
+	{
+		elog(NOTICE, "getSRSbySRID: could not connect to SPI manager");
+		SPI_finish();
+		return NULL;
+	}
+
     /* In GPDB, we don't support the SRID retrieving from spatial_ref_sys,
      *  otherwise we will meet the known issue: cannot access relation from segments.
      *  so we search static hash table firstly to by-pass this issue issue.
@@ -71,15 +78,9 @@ char * getSRSbySRID(int srid, bool short_crs)
         size = strlen(query) + 1;
         srscopy = SPI_palloc(size);
         memcpy(srscopy, query, size);
+        SPI_finish();
         return srscopy;
     }
-
-	if (SPI_OK_CONNECT != SPI_connect ())
-	{
-		elog(NOTICE, "getSRSbySRID: could not connect to SPI manager");
-		SPI_finish();
-		return NULL;
-	}
 
 	if (short_crs)
 		snprintf(query, 256, "SELECT auth_name||':'||auth_srid \

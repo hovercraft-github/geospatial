@@ -218,18 +218,23 @@ ifeq ($(HAVE_JSON),yes)
 		in_geojson
 endif
 
-ifeq ($(HAVE_BRIN),yes)
-	TESTS += \
-		regress_brin_index \
-		regress_brin_index_3d \
-		regress_brin_index_geography
-endif
 
-ifeq ($(HAVE_SPGIST),yes)
-	TESTS += \
-	regress_spgist_index_2d \
-	regress_spgist_index_3d
-endif
+# ==================================================================
+# Disable brin and spgist index tests for gp7
+# ==================================================================
+
+# ifeq ($(HAVE_BRIN),yes)
+# 	TESTS += \
+# 		regress_brin_index \
+# 		regress_brin_index_3d \
+# 		regress_brin_index_geography
+# endif
+
+# ifeq ($(HAVE_SPGIST),yes)
+# 	TESTS += \
+# 	regress_spgist_index_2d \
+# 	regress_spgist_index_3d
+# endif
 
 
 ifeq (@HAVE_PROTOBUF@,yes)

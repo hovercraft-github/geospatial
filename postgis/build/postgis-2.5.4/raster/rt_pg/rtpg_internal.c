@@ -309,17 +309,26 @@ WHERE srid = X
 LIMIT 1
 */
 
+	spi_result = SPI_connect();
+	if (spi_result != SPI_OK_CONNECT) {
+		pfree(sql);
+		elog(ERROR, "rtpg_getSR: Could not connect to database using SPI\n");
+		return NULL;
+	}
+
 	/* Greenplum tends to use in-memory hash instead of SPI query */
 	if (getSRSbySRIDbyRule(srid, true, query) != NULL) {
 		len = strlen(query) + 1;
 		srs = SPI_palloc(len);
 
 		if (NULL == srs) {
+			SPI_finish();
 			elog(ERROR, "rtpg_getSR: Could not allocate memory for spatial reference text\n");
 			return NULL;
 		}
 
 		memcpy(srs, query, len);
+		SPI_finish();
 		return srs;
 	}
 
@@ -327,13 +336,6 @@ LIMIT 1
 	sql = (char *) palloc(len);
 	if (NULL == sql) {
 		elog(ERROR, "rtpg_getSR: Could not allocate memory for sql\n");
-		return NULL;
-	}
-
-	spi_result = SPI_connect();
-	if (spi_result != SPI_OK_CONNECT) {
-		pfree(sql);
-		elog(ERROR, "rtpg_getSR: Could not connect to database using SPI\n");
 		return NULL;
 	}
 
