@@ -27,7 +27,6 @@
 #include "lwgeom_pg.h"
 #include "lwgeom_cache.h"
 #include "lwgeom_transform.h"
-#include "libsrid.h"
 
 /* C headers */
 #include <float.h>
@@ -188,11 +187,11 @@ GetProjStringsSPI(int32_t srid)
      *  otherwise we will meet the known issue: cannot access relation from segments.
      *  so we search static hash table firstly to by-pass this issue issue.
      */
-	char *proj4_string = getProj4StringStatic(srid);
-	if (proj4_string != NULL) {
-		strncpy(proj_str, proj4_string, maxproj4len - 1);
-		return proj_str;
-	}
+//	char *proj4_string = getProj4StringStatic(srid);
+//	if (proj4_string != NULL) {
+//		strncpy(proj_str, proj4_string, maxproj4len - 1);
+//		return proj_str;
+//	}
 
 	/* Connect */
 	spi_result = SPI_connect();

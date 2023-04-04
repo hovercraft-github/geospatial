@@ -61,8 +61,6 @@
 #include "liblwgeom.h"
 #include "lwgeom_transform.h"
 
-#include "libsrid.h"
-
 Datum geom_from_gml(PG_FUNCTION_ARGS);
 static LWGEOM *lwgeom_from_gml(const char *wkt, int xml_size);
 static LWGEOM* parse_gml(xmlNodePtr xnode, bool *hasz, int *root_srid);

@@ -22,7 +22,6 @@ LEX=flex
 # Standalone COMMON objects
 SA_OBJS = \
 	gserialized_gist.o \
-	libsrid.o \
 	lwgeom_transform.o \
 	lwgeom_cache.o \
 	lwgeom_pg.o
@@ -30,7 +29,6 @@ SA_OBJS = \
 
 SA_HEADERS = \
 	lwgeom_pg.h \
-	libsrid.h \
 	lwgeom_transform.h \
 	lwgeom_cache.h \
 	gserialized_gist.h \
