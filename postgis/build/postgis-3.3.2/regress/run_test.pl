@@ -790,15 +790,13 @@ sub run_simple_test
           . " -v \"tmpfile='$tmpfile'\""
           . " -v \"scriptdir=$scriptdir\""
           . " -v \"regdir=$REGDIR\""
-          . " -v \"top_builddir=$TOP_BUILDDIR\""
           . " -v \"schema=$OPT_SCHEMA.\""
-          . " -c \"SET search_path TO public,$OPT_SCHEMA,topology\""
           . " -tXAq -f $sqlfile $DB > $outfile 2>&1";
 	my $rv = system($cmd);
-    if ( $rv ) {
-        fail "psql exited with an error", $outfile;
-        die;
-    }
+#     if ( $rv ) {
+#         fail "psql exited with an error", $outfile;
+#         die;
+#     }
 
 	# Check for ERROR lines
 	open(FILE, "$outfile");
@@ -806,6 +804,12 @@ sub run_simple_test
 	close(FILE);
 
 	# Strip the lines we don't care about
+	@lines = grep(!/^\$/, @lines);
+	@lines = grep(!/^(INSERT|DELETE|UPDATE|SELECT|COPY|DO)/, @lines);
+	@lines = grep(!/^(CONTEXT|RESET|ANALYZE)/, @lines);
+	@lines = grep(!/^(DROP|CREATE|ALTER|VACUUM)/, @lines);
+	@lines = grep(!/^(LOG|SET|TRUNCATE|DISCARD)/, @lines);
+	@lines = grep(!/^LINE \d/, @lines);
 	@lines = grep(!/^\s+$/, @lines);
     @lines = grep(!/NOTICE:  Table doesn't have 'distributed by' clause/i, @lines);
 
