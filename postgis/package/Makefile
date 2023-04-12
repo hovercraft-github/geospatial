@@ -66,6 +66,9 @@ POSTGIS_RPM=postgis-$(POSTGIS_VER)-$(POSTGIS_REL).$(ARCH).rpm
 POSTGIS_GPPKG=postgis-$(POSTGIS_PKG_VER)-$(OS)-$(ARCH).gppkg
 TARGET_GPPKG=$(POSTGIS_GPPKG)
 EXTRA_CLEAN+=$(GEOS_RPM) $(PROJ_RPM) $(JSON_RPM) $(GDAL_RPM) $(LIBEXPAT_RPM) $(POSTGIS_RPM) $(POSTGIS_GPPKG)
+ifeq ($(GPPKG),)
+GPPKG=gppkg
+endif
 
 #
 # Generic rules to build gppkgs included here
@@ -116,8 +119,50 @@ gppkg_only: $(GEOS_DIR) $(PROJ_DIR) $(JSON_DIR) $(GDAL_DIR) $(LIBEXPAT_DIR)
 	$(MAKE) $(POSTGIS_RPM) RPM_FLAGS=$(POSTGIS_RPM_FLAGS)
 	$(MAKE) $(POSTGIS_GPPKG) MAIN_RPM=$(POSTGIS_RPM) DEPENDENT_RPMS=$(DEPENDENT_RPMS)
 
-# gppkg_only:
-# 	$(MAKE) $(POSTGIS_RPM) RPM_FLAGS=$(POSTGIS_RPM_FLAGS)
-# 	$(MAKE) $(POSTGIS_GPPKG) MAIN_RPM=$(POSTGIS_RPM) DEPENDENT_RPMS=
+gppkg_spec_v2.yml: gppkg_spec_v2.yml.in
+	cat $< | sed "s/#arch/$(ARCH)/g" | sed "s/#os/$(OS)/g" | sed 's/#gpver/$(GP_VERSION_NUM)/g' > $@
 
-.PHONY: gppkg
+gppkgv2-geos:
+	install -d gppkg_build/files/lib/
+	install $(GEOS_DIR)/lib64/libgeos*so* -t gppkg_build/files/lib/
+
+gppkgv2-proj:
+	install -d gppkg_build/files/lib
+	install -d gppkg_build/files/share
+	install $(PROJ_DIR)/lib/libproj*so* -t gppkg_build/files/lib
+	install $(PROJ_DIR)/share/proj/*    -t gppkg_build/files/share
+
+gppkgv2-jsonc:
+	install -d gppkg_build/files/lib
+	install $(JSON_DIR)/lib/libjson-c*so* -t gppkg_build/files/lib
+
+gppkgv2-gdal:
+	install -d gppkg_build/files/lib
+	install -d gppkg_build/files/share
+	install -d gppkg_build/files/etc/environment.d
+	install $(GDAL_DIR)/lib/libgdal*so* -t gppkg_build/files/lib/
+	install $(GDAL_DIR)/share/gdal/*    -t gppkg_build/files/share
+	# environment.d available since GPDB7
+	# https://github.com/greenplum-db/gpdb/pull/14327
+	install ./30-postgis.conf           -t gppkg_build/files/etc/environment.d
+
+gppkgv2-libexpat:
+	install -d gppkg_build/files/lib
+	install $(LIBEXPAT_DIR)/lib/libexpat*so* -t gppkg_build/files/lib/
+
+gppkgv2-postgis:
+	make -C $(POSTGIS_DIR) BLD_TOP=$(BLD_TOP) install DESTDIR=$(PWD)/gppkg_build/gphome || true
+	cp -r $(shell dirname $(PWD)/gppkg_build/gphome/$(shell pg_config --bindir))/* $(PWD)/gppkg_build/files
+
+gppkgv2: gppkg_spec_v2.yml gppkgv2-geos gppkgv2-proj gppkgv2-jsonc gppkgv2-gdal gppkgv2-libexpat gppkgv2-postgis
+	$(GPPKG) build \
+		-f \
+		--input $(PWD)/gppkg_build/files \
+		--config $(PWD)/gppkg_spec_v2.yml \
+		--output $(POSTGIS_GPPKG)
+
+gppkgv2-clean:
+	rm $(PWD)/gppkg_spec_v2.yml
+	rm -rf $(PWD)/gppkg_build
+
+.PHONY: gppkg gppkgv2

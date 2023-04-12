@@ -1,0 +1,15 @@
+Format: V2
+Pkgname: postgis
+Architecture: #arch
+OS: #os
+GPDBVersion: #gpver
+Version: ossv2.5.4+pivotal.8_pv2.5_gpdb6.0
+Description: PostGIS provides spatial database functions for the Greenplum Database.
+PostInstall:
+  Coordinator: |
+      echo "Please run the following commands to enable the PostGIS package:"
+      echo "CREATE EXTENSION postgis;"
+PostUpdate:
+  Coordinator: |
+      echo "Please run the following commands to finish the upgrade:"
+      echo '$GPHOME/share/postgresql/contrib/postgis-2.5/postgis_manager.sh mydatabase upgrade'

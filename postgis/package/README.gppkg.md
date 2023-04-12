@@ -1,6 +1,7 @@
 Notes for generating gppkg with pre-compiled libraries
 
-### 1. Download 3rd party libraries
+### GPPKG v1 (<= GPDB 6)
+#### 1. Download 3rd party libraries
 
 ======================================
 
@@ -14,7 +15,7 @@ Geospatial-Foundation: gdal 3.6.3
 expat: libexpat 2.5.0
 ```
 
-### 2. Compile postgis gppkg
+#### 2. Compile postgis gppkg
 
 ======================================
 
@@ -42,7 +43,7 @@ To clean it, run:
 	make BLD_TOP="/home/gpadmin/workspace/gpdb/gpAux" clean
 ```
 
-### 3. Verification and installation
+#### 3. Verification and installation
 
 ======================================
 
@@ -54,4 +55,42 @@ run belowing command to verify postgis.gppkg is ready.
 run belowing belowing to install postgis.gppkg into gpdb.
 ```sh
 	gppkg -i postgis-ossv2.5.4+pivotal.2_pv2.5_gpdb6.0-rhel6-x86_64.gppkg
+```
+
+### For GPPKG V2 (>= GPDB7)
+
+#### 1. 3rd dependency and Compile postgis
+
+same as GPDB V1, build the Makefile traget is `gppkgv2`
+
+```sh
+source ~/greenplum-db-devel/greenplum_path.sh
+
+make \
+	BLD_TARGETS="gppkg" \
+	BLD_ARCH="rhel6_x86_64" \
+	INSTLOC=$GPHOME \
+	BLD_TOP="/home/gpadmin/workspace/gpdb/gpAux" \
+	POSTGIS_DIR="/home/gpadmin/workspace/geospatial/postgis/build/postgis-2.5.4" \
+	gppkgv2
+```
+
+To clean it, run:
+
+```sh
+	make BLD_TOP="/home/gpadmin/workspace/gpdb/gpAux" clean
+```
+
+#### 2. Verification and installation
+
+to install
+
+```sh
+	gppkg install ./postgis-ossv2.5.4+pivotal.2_pv2.5_gpdb6.0-rhel6-x86_64.gppkg
+```
+
+to query and verify
+
+```sh
+	gppkg query postgis
 ```
