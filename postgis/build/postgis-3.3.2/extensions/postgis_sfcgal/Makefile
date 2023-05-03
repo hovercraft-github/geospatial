@@ -1,8 +1,8 @@
 include ../upgradeable_versions.mk
 
 EXTENSION    = postgis_sfcgal
-EXTVERSION    = 2.5.4
-MINORVERSION  = 2.5
+EXTVERSION    = 3.3.2
+MINORVERSION  = 3.3
 GREP = /usr/bin/grep
 PERL = /usr/local/bin/perl
 
