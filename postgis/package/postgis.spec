@@ -47,6 +47,7 @@ cp %{postgis_dir}/../../package/postgis--unpackaged--2.1.5.sql %{buildroot}/temp
 cp %{postgis_dir}/../../package/postgis.control-2.1.5 %{buildroot}/temp/share/postgresql/contrib/postgis-3.3/upgrade/
 
 cp $GPHOME/share/postgresql/extension/postgis.control %{buildroot}/temp/share/postgresql/extension/
+cp $GPHOME/share/postgresql/extension/postgis_raster.control %{buildroot}/temp/share/postgresql/extension/
 cp $GPHOME/share/postgresql/extension/postgis_tiger_geocoder.control %{buildroot}/temp/share/postgresql/extension/
 cp $GPHOME/share/postgresql/extension/address_standardizer.control %{buildroot}/temp/share/postgresql/extension/
 cp $GPHOME/share/postgresql/extension/address_standardizer_data_us.control %{buildroot}/temp/share/postgresql/extension/
@@ -498,6 +499,7 @@ cp $GPHOME/share/postgresql/extension/address_standardizer*.sql %{buildroot}/tem
 /temp/share/postgresql/extension/postgis_tiger_geocoder--3.1.8--3.3.2.sql
 /temp/share/postgresql/extension/address_standardizer_data_us--3.0.4--3.3.2.sql
 /temp/share/postgresql/extension/postgis.control
+/temp/share/postgresql/extension/postgis_raster.control
 /temp/share/postgresql/extension/address_standardizer--2.4.9--3.3.2.sql
 /temp/share/postgresql/extension/postgis_tiger_geocoder--2.3.6--3.3.2.sql
 /temp/share/postgresql/extension/postgis_tiger_geocoder--2.0.2--3.3.2.sql

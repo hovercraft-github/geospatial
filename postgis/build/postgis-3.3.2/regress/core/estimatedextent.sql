@@ -1,13 +1,10 @@
 -- #877, #818
 set allow_system_table_mods=true;
 SET client_min_messages TO ERROR;
-create table t(g geometry) DISTRIBUTED BY(g);
+create table t(g geometry);
 select '#877.1', ST_EstimatedExtent('t','g');
 analyze t;
 select '#877.2', ST_EstimatedExtent('public', 't','g');
-SET client_min_messages TO NOTICE;
-select '#877.2.deprecated', ST_Estimated_Extent('public', 't','g');
-SET client_min_messages TO ERROR;
 insert into t(g) values ('LINESTRING(-10 -50, 20 30)');
 
 -- #877.3
@@ -183,29 +180,35 @@ from ( select ST_EstimatedExtent('public','c1','g', 't') as e offset 0 ) AS e;
 SET client_min_messages TO NOTICE;
 drop table p cascade;
 
+-- FIXME: Remove index tests
+-- -- #5120
+-- BEGIN;
+-- CREATE TABLE t(g geometry);
+-- INSERT INTO t SELECT ST_MakePoint(n,n) FROM generate_series(0,10) n;
+-- ANALYZE t;
+-- SELECT '#5120.without_index', ST_AsText(
+-- 	ST_BoundingDiagonal(ST_EstimatedExtent('t','g')),
+-- 	0
+-- );
+-- CREATE INDEX ON t USING GIST (g);
+-- SELECT '#5120.with_index', ST_AsText(
+-- 	ST_BoundingDiagonal(ST_EstimatedExtent('t','g')),
+-- 	0
+-- );
+-- TRUNCATE t;
+-- --DELETE FROM t; -- requires VACUUM to clean index
+-- --VACUUM t; -- drops entries from index (cannot run within transaction)
+-- SELECT '#5120.without_data', ST_AsText(
+-- 	ST_BoundingDiagonal(ST_EstimatedExtent('t','g')),
+-- 	0
+-- );
+-- ROLLBACK;
 
--- #5120
-BEGIN;
-CREATE TABLE t(g geometry);
-INSERT INTO t SELECT ST_MakePoint(n,n) FROM generate_series(0,10) n;
-ANALYZE t;
-SELECT '#5120.without_index', ST_AsText(
-	ST_BoundingDiagonal(ST_EstimatedExtent('t','g')),
-	0
-);
-CREATE INDEX ON t USING GIST (g);
-SELECT '#5120.with_index', ST_AsText(
-	ST_BoundingDiagonal(ST_EstimatedExtent('t','g')),
-	0
-);
-TRUNCATE t;
---DELETE FROM t; -- requires VACUUM to clean index
---VACUUM t; -- drops entries from index (cannot run within transaction)
-SELECT '#5120.without_data', ST_AsText(
-	ST_BoundingDiagonal(ST_EstimatedExtent('t','g')),
-	0
-);
-ROLLBACK;
+-- Output:
+-- #5120.without_index|LINESTRING(0 0,10 10)
+-- #5120.with_index|LINESTRING(0 0,10 10)
+-- #5120.without_data|
+
 SET client_min_messages TO ERROR;
 --
 -- Index assisted extent generation

@@ -4189,10 +4189,10 @@ CREATE OR REPLACE FUNCTION ST_Union (geometry[])
 CREATE AGGREGATE ST_Union(geometry) (
 	sfunc = pgis_geometry_union_parallel_transfn,
 	stype = internal,
-	parallel = safe,
-	serialfunc = pgis_geometry_union_parallel_serialfn,
-	deserialfunc = pgis_geometry_union_parallel_deserialfn,
-	combinefunc = pgis_geometry_union_parallel_combinefn,
+--	parallel = safe,
+--	serialfunc = pgis_geometry_union_parallel_serialfn,
+--	deserialfunc = pgis_geometry_union_parallel_deserialfn,
+--	combinefunc = pgis_geometry_union_parallel_combinefn,
 	finalfunc = pgis_geometry_union_parallel_finalfn
 );
 
@@ -4201,10 +4201,10 @@ CREATE AGGREGATE ST_Union(geometry) (
 CREATE AGGREGATE ST_Union (geometry, gridSize float8) (
 	sfunc = pgis_geometry_union_parallel_transfn,
 	stype = internal,
-	parallel = safe,
-	serialfunc = pgis_geometry_union_parallel_serialfn,
-	deserialfunc = pgis_geometry_union_parallel_deserialfn,
-	combinefunc = pgis_geometry_union_parallel_combinefn,
+--	parallel = safe,
+--	serialfunc = pgis_geometry_union_parallel_serialfn,
+--	deserialfunc = pgis_geometry_union_parallel_deserialfn,
+--	combinefunc = pgis_geometry_union_parallel_combinefn,
 	finalfunc = pgis_geometry_union_parallel_finalfn
 	);
 

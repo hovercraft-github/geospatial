@@ -33,6 +33,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "libsrid.h"
+
 #define maxprojlen  512
 #define spibufferlen 512
 
@@ -183,21 +185,23 @@ GetProjStringsSPI(int32_t srid)
 	PjStrs strs;
 	memset(&strs, 0, sizeof(strs));
 
-    /* In GPDB, we don't support the SRID retrieving from spatial_ref_sys,
-     *  otherwise we will meet the known issue: cannot access relation from segments.
-     *  so we search static hash table firstly to by-pass this issue issue.
-     */
-//	char *proj4_string = getProj4StringStatic(srid);
-//	if (proj4_string != NULL) {
-//		strncpy(proj_str, proj4_string, maxproj4len - 1);
-//		return proj_str;
-//	}
-
 	/* Connect */
 	spi_result = SPI_connect();
 	if (spi_result != SPI_OK_CONNECT)
 	{
 		elog(ERROR, "Could not connect to database using SPI");
+	}
+
+    /* In GPDB, we don't support the SRID retrieving from spatial_ref_sys,
+     *  otherwise we will meet the known issue: cannot access relation from segments.
+     *  so we search static hash table firstly to by-pass this issue issue.
+     */
+	static int maxproj4len = 512;
+	char *proj4_string = getProj4StringStatic(srid);
+	if (proj4_string != NULL) {
+		strs.proj4text = SPI_pstrdup(proj4_string);
+		SPI_finish();
+		return strs;
 	}
 
 	static char *proj_str_tmpl =

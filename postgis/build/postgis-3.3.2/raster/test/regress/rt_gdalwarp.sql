@@ -1,4 +1,3 @@
-SET client_min_messages TO WARNING;
 DROP TABLE IF EXISTS raster_gdalwarp_src;
 DROP TABLE IF EXISTS raster_gdalwarp_dst;
 CREATE TABLE raster_gdalwarp_src (

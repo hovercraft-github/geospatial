@@ -1822,7 +1822,7 @@ VALUES(9, 'addrfeat', 'addrfeat', false, true, false,true, 'a',
 	'${psql} -c "ALTER TABLE ${data_schema}.${state_abbrev}_${lookup_name} ADD CONSTRAINT chk_statefp CHECK (statefp = ''${state_fips}'');"
 	${psql} -c "INSERT INTO tiger.${table_name} SELECT * FROM ${data_schema}.${state_abbrev}_${lookup_name};"
 	${psql} -c "vacuum analyze ${data_schema}.${state_abbrev}_${lookup_name};"',  ARRAY['gid','statefp','fromarmid', 'toarmid']);
-
+--"
 CREATE OR REPLACE FUNCTION loader_generate_nation_script(os text)
   RETURNS SETOF text AS
 $BODY$

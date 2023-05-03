@@ -97,6 +97,7 @@ SELECT DropRasterConstraints(current_schema(), 'test_raster_columns', 'rast'::na
 DELETE FROM test_raster_columns;
 
 -- regular_blocking
+-- regular_blocking is not supported on Greenplum so the expected test output has to be changed
 
 SELECT make_test_raster(1, 3, 3, 0, 0);
 SELECT make_test_raster(2, 3, 3, 3, 0);

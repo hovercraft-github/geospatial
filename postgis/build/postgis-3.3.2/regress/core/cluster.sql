@@ -1,4 +1,5 @@
 -- tests for ST_ClusterIntersecting and ST_ClusterWithin
+set client_min_messages to error;
 
 CREATE TEMPORARY TABLE cluster_inputs (id int, geom geometry) DISTRIBUTED BY (id);
 INSERT INTO cluster_inputs VALUES
@@ -9,6 +10,7 @@ INSERT INTO cluster_inputs VALUES
 (5, 'LINESTRING (6 6, 7 7)'),
 (6, 'POLYGON EMPTY'),
 (7, 'POLYGON ((0 0, 4 0, 4 4, 0 4, 0 0))');
+reset client_min_messages;
 
 SELECT 't1', ST_AsText(unnest(ST_ClusterIntersecting(geom ORDER BY id))) FROM cluster_inputs;
 SELECT 't2', ST_AsText(unnest(ST_ClusterIntersecting(array_agg(geom ORDER BY id)))) FROM cluster_inputs;
@@ -33,7 +35,7 @@ SELECT 't101', id, ST_ClusterDBSCAN(geom, eps := 0.8, minpoints := 1) OVER (ORDE
 SELECT 't102', id, ST_ClusterDBSCAN(geom, eps := 0.8, minpoints := 4) OVER () from dbscan_inputs ORDER BY id;
 
 /* minpoints = 3, but eps too small to form cluster on left */
-SELECT 't103', id, ST_ClusterDBSCAN(geom, eps := 0.6, minpoints := 3) OVER () from dbscan_inputs;
+SELECT 't103', id, ST_ClusterDBSCAN(geom, eps := 0.6, minpoints := 3) OVER () from dbscan_inputs ORDER BY id;
 
 -- #3612
 SELECT '#3612a', ST_ClusterDBSCAN(foo1.the_geom, 20.1, 5)OVER()  As result
