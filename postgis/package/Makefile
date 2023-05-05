@@ -126,35 +126,35 @@ gppkgv2-geos:
 	install -d gppkg_build/files/bin
 	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib/
-	install $(GEOS_DIR)/bin/* -t gppkg_build/files/bin
-	install $(GEOS_DIR)/include/*    -t gppkg_build/files/include
-	install $(GEOS_DIR)/lib64/libgeos*so* -t gppkg_build/files/lib/
+	cp -r $(GEOS_DIR)/bin/* gppkg_build/files/bin
+	cp -r $(GEOS_DIR)/include/*    gppkg_build/files/include
+	cp -r $(GEOS_DIR)/lib64/libgeos*so* gppkg_build/files/lib/
 
 gppkgv2-proj:
 	install -d gppkg_build/files/bin
 	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
 	install -d gppkg_build/files/share
-	install $(PROJ_DIR)/bin/* -t gppkg_build/files/bin
-	install $(PROJ_DIR)/include/*    -t gppkg_build/files/include
-	install $(PROJ_DIR)/lib64/libproj*so* -t gppkg_build/files/lib
-	install $(PROJ_DIR)/share/proj/*    -t gppkg_build/files/share
+	cp -r $(PROJ_DIR)/bin/* gppkg_build/files/bin
+	cp -r $(PROJ_DIR)/include/*    gppkg_build/files/include
+	cp -r $(PROJ_DIR)/lib64/libproj*so* gppkg_build/files/lib
+	cp -r $(PROJ_DIR)/share/proj/*    gppkg_build/files/share
 
 gppkgv2-jsonc:
 	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
-	install $(JSON_DIR)/include/*    -t gppkg_build/files/include
-	install $(JSON_DIR)/lib/libjson-c*so* -t gppkg_build/files/lib
+	cp -r $(JSON_DIR)/include/*    gppkg_build/files/include
+	cp -r $(JSON_DIR)/lib/libjson-c*so* gppkg_build/files/lib
 
 gppkgv2-gdal:
 	install -d gppkg_build/files/bin
 	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
 	install -d gppkg_build/files/share
-	install $(GDAL_DIR)/bin/* -t gppkg_build/files/bin
-	install $(GDAL_DIR)/include/*    -t gppkg_build/files/include
-	install $(GDAL_DIR)/lib64/libgdal*so* -t gppkg_build/files/lib/
-	install $(GDAL_DIR)/share/gdal/*    -t gppkg_build/files/share
+	cp -r $(GDAL_DIR)/bin/* gppkg_build/files/bin
+	cp -r $(GDAL_DIR)/include/*    gppkg_build/files/include
+	cp -r $(GDAL_DIR)/lib64/libgdal*so* gppkg_build/files/lib/
+	cp -r $(GDAL_DIR)/share/gdal/*    gppkg_build/files/share
 	install -d gppkg_build/files/etc/environment.d
 	# environment.d available since GPDB7
 	# https://github.com/greenplum-db/gpdb/pull/14327
