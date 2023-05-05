@@ -67,10 +67,24 @@ POSTGIS_GPPKG=postgis-$(POSTGIS_PKG_VER)-$(OS)-$(ARCH).gppkg
 TARGET_GPPKG=$(POSTGIS_GPPKG)
 EXTRA_CLEAN+=$(GEOS_RPM) $(PROJ_RPM) $(JSON_RPM) $(GDAL_RPM) $(LIBEXPAT_RPM) $(POSTGIS_RPM) $(POSTGIS_GPPKG)
 
+ifeq ($(GPPKG),)
+GPPKG=gppkg
+endif
+
 #
 # Generic rules to build gppkgs included here
 #
 # include $(BLD_TOP)/releng/gppkg.mk
+
+%.rpm:
+	RPM_NAME=$(word 1,$(RPM_ARGS))
+	PWD=$(shell pwd)
+	rm -rf RPMS BUILD SPECS
+	mkdir RPMS BUILD SPECS
+	cp $(RPM_NAME).spec SPECS/
+	rpmbuild -bb SPECS/$(RPM_NAME).spec --buildroot $(PWD)/BUILD --define '_topdir $(PWD)' --define '__os_install_post \%{nil}' --define 'buildarch $(ARCH)' $(RPM_FLAGS)
+	mv RPMS/$(ARCH)/$*.rpm .
+	rm -rf RPMS BUILD SPECS
 
 # trigger the compiling process
 build_postgis:
@@ -120,4 +134,21 @@ gppkg_only: $(GEOS_DIR) $(PROJ_DIR) $(JSON_DIR) $(GDAL_DIR) $(LIBEXPAT_DIR)
 # 	$(MAKE) $(POSTGIS_RPM) RPM_FLAGS=$(POSTGIS_RPM_FLAGS)
 # 	$(MAKE) $(POSTGIS_GPPKG) MAIN_RPM=$(POSTGIS_RPM) DEPENDENT_RPMS=
 
-.PHONY: gppkg
+gppkg_spec_v2.yml: gppkg_spec_v2.yml.in
+	cat $< | sed "s/#arch/$(ARCH)/g" | sed "s/#os/$(OS)/g" | sed 's/#gpver/$(GP_VERSION_NUM)/g' > $@
+
+gppkgv2: gppkg_spec_v2.yml $(GEOS_DIR) $(PROJ_DIR) $(JSON_DIR) $(GDAL_DIR) $(LIBEXPAT_DIR)
+	$(MAKE) $(GEOS_RPM) RPM_FLAGS=$(GEOS_RPM_FLAGS)
+	$(MAKE) $(PROJ_RPM) RPM_FLAGS=$(PROJ_RPM_FLAGS)
+	$(MAKE) $(JSON_RPM) RPM_FLAGS=$(JSON_RPM_FLAGS)
+	$(MAKE) $(GDAL_RPM) RPM_FLAGS=$(GDAL_RPM_FLAGS)
+	$(MAKE) $(LIBEXPAT_RPM) RPM_FLAGS=$(LIBEXPAT_RPM_FLAGS)
+	$(MAKE) $(POSTGIS_RPM) RPM_FLAGS=$(POSTGIS_RPM_FLAGS)
+	cp $(PWD)/*.rpm $(PWD)/gppkg_build/files
+	$(GPPKG) build \
+		-f \
+		--input $(PWD)/gppkg_build/files \
+		--config $(PWD)/gppkg_spec_v2.yml \
+		--output $(POSTGIS_GPPKG)
+
+.PHONY: gppkg gppkgv2
