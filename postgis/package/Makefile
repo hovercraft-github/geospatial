@@ -28,7 +28,7 @@ mkinstalldirs=$(BLD_TOP)/config/mkinstalldirs
 # versions for these 3rd party libraries and Postgis
 include ../Makefile.version
 
-#GOES
+#GEOS
 GEOS_DIR=$(EXT_TOP)/geos-$(GEOS_VER)
 GEOS_CONFIG=$(GEOS_DIR)/bin/geos-config
 GEOS_RPM_FLAGS="--define 'geos_dir $(GEOS_DIR)' --define 'geos_ver $(GEOS_VER)' --define 'geos_rel $(GEOS_REL)'"
@@ -123,35 +123,55 @@ gppkg_spec_v2.yml: gppkg_spec_v2.yml.in
 	cat $< | sed "s/#arch/$(ARCH)/g" | sed "s/#os/$(OS)/g" | sed 's/#gpver/$(GP_VERSION_NUM)/g' > $@
 
 gppkgv2-geos:
+	install -d gppkg_build/files/bin
+	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib/
+	install $(GEOS_DIR)/bin/* -t gppkg_build/files/bin
+	install $(GEOS_DIR)/include/*    -t gppkg_build/files/include
 	install $(GEOS_DIR)/lib64/libgeos*so* -t gppkg_build/files/lib/
 
 gppkgv2-proj:
+	install -d gppkg_build/files/bin
+	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
 	install -d gppkg_build/files/share
+	install $(PROJ_DIR)/bin/* -t gppkg_build/files/bin
+	install $(PROJ_DIR)/include/*    -t gppkg_build/files/include
 	install $(PROJ_DIR)/lib64/libproj*so* -t gppkg_build/files/lib
 	install $(PROJ_DIR)/share/proj/*    -t gppkg_build/files/share
 
 gppkgv2-jsonc:
+	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
+	install $(JSON_DIR)/include/*    -t gppkg_build/files/include
 	install $(JSON_DIR)/lib/libjson-c*so* -t gppkg_build/files/lib
 
 gppkgv2-gdal:
+	install -d gppkg_build/files/bin
+	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
 	install -d gppkg_build/files/share
-	install -d gppkg_build/files/etc/environment.d
+	install $(GDAL_DIR)/bin/* -t gppkg_build/files/bin
+	install $(GDAL_DIR)/include/*    -t gppkg_build/files/include
 	install $(GDAL_DIR)/lib64/libgdal*so* -t gppkg_build/files/lib/
 	install $(GDAL_DIR)/share/gdal/*    -t gppkg_build/files/share
+	install -d gppkg_build/files/etc/environment.d
 	# environment.d available since GPDB7
 	# https://github.com/greenplum-db/gpdb/pull/14327
 	install ./30-postgis.conf           -t gppkg_build/files/etc/environment.d
 
 gppkgv2-libexpat:
+	install -d gppkg_build/files/bin
+	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
+	install -d gppkg_build/files/share
+	install $(LIBEXPAT_DIR)/bin/* -t gppkg_build/files/bin
+	install $(LIBEXPAT_DIR)/include/*    -t gppkg_build/files/include
 	install $(LIBEXPAT_DIR)/lib/libexpat*so* -t gppkg_build/files/lib/
+	install $(LIBEXPAT_DIR)/share/gdal/*    -t gppkg_build/files/share
 
 gppkgv2-postgis:
-	make -C $(POSTGIS_DIR) BLD_TOP=$(BLD_TOP) install DESTDIR=$(PWD)/gppkg_build/gphome || true
+	make -C $(POSTGIS_DIR) BLD_TOP=$(BLD_TOP) install DESTDIR=$(PWD)/gppkg_build/gphome
 	cp -r $(shell dirname $(PWD)/gppkg_build/gphome/$(shell pg_config --bindir))/* $(PWD)/gppkg_build/files
 
 gppkgv2: gppkg_spec_v2.yml gppkgv2-geos gppkgv2-proj gppkgv2-jsonc gppkgv2-gdal gppkgv2-libexpat gppkgv2-postgis
