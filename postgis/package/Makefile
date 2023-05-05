@@ -129,7 +129,7 @@ gppkgv2-geos:
 gppkgv2-proj:
 	install -d gppkg_build/files/lib
 	install -d gppkg_build/files/share
-	install $(PROJ_DIR)/lib/libproj*so* -t gppkg_build/files/lib
+	install $(PROJ_DIR)/lib64/libproj*so* -t gppkg_build/files/lib
 	install $(PROJ_DIR)/share/proj/*    -t gppkg_build/files/share
 
 gppkgv2-jsonc:
@@ -140,7 +140,7 @@ gppkgv2-gdal:
 	install -d gppkg_build/files/lib
 	install -d gppkg_build/files/share
 	install -d gppkg_build/files/etc/environment.d
-	install $(GDAL_DIR)/lib/libgdal*so* -t gppkg_build/files/lib/
+	install $(GDAL_DIR)/lib64/libgdal*so* -t gppkg_build/files/lib/
 	install $(GDAL_DIR)/share/gdal/*    -t gppkg_build/files/share
 	# environment.d available since GPDB7
 	# https://github.com/greenplum-db/gpdb/pull/14327
