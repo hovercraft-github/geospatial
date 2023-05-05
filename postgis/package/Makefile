@@ -70,7 +70,7 @@ EXTRA_CLEAN+=$(GEOS_RPM) $(PROJ_RPM) $(JSON_RPM) $(GDAL_RPM) $(LIBEXPAT_RPM) $(P
 #
 # Generic rules to build gppkgs included here
 #
-include $(BLD_TOP)/releng/gppkg.mk
+# include $(BLD_TOP)/releng/gppkg.mk
 
 # trigger the compiling process
 build_postgis:
