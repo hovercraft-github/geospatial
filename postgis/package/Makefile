@@ -164,11 +164,9 @@ gppkgv2-libexpat:
 	install -d gppkg_build/files/bin
 	install -d gppkg_build/files/include
 	install -d gppkg_build/files/lib
-	install -d gppkg_build/files/share
 	install $(LIBEXPAT_DIR)/bin/* -t gppkg_build/files/bin
 	install $(LIBEXPAT_DIR)/include/*    -t gppkg_build/files/include
 	install $(LIBEXPAT_DIR)/lib/libexpat*so* -t gppkg_build/files/lib/
-	install $(LIBEXPAT_DIR)/share/gdal/*    -t gppkg_build/files/share
 
 gppkgv2-postgis:
 	make -C $(POSTGIS_DIR) BLD_TOP=$(BLD_TOP) install DESTDIR=$(PWD)/gppkg_build/gphome
