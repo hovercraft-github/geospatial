@@ -74,17 +74,7 @@ endif
 #
 # Generic rules to build gppkgs included here
 #
-# include $(BLD_TOP)/releng/gppkg.mk
-
-%.rpm:
-	RPM_NAME=$(word 1,$(RPM_ARGS))
-	PWD=$(shell pwd)
-	rm -rf RPMS BUILD SPECS
-	mkdir RPMS BUILD SPECS
-	cp $(RPM_NAME).spec SPECS/
-	rpmbuild -bb SPECS/$(RPM_NAME).spec --buildroot $(PWD)/BUILD --define '_topdir $(PWD)' --define '__os_install_post \%{nil}' --define 'buildarch $(ARCH)' $(RPM_FLAGS)
-	mv RPMS/$(ARCH)/$*.rpm .
-	rm -rf RPMS BUILD SPECS
+include gppkg.mk
 
 # trigger the compiling process
 build_postgis:
