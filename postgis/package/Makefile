@@ -134,6 +134,7 @@ gppkgv2: gppkg_spec_v2.yml $(GEOS_DIR) $(PROJ_DIR) $(JSON_DIR) $(GDAL_DIR) $(LIB
 	$(MAKE) $(GDAL_RPM) RPM_FLAGS=$(GDAL_RPM_FLAGS)
 	$(MAKE) $(LIBEXPAT_RPM) RPM_FLAGS=$(LIBEXPAT_RPM_FLAGS)
 	$(MAKE) $(POSTGIS_RPM) RPM_FLAGS=$(POSTGIS_RPM_FLAGS)
+	mkdir -p gppkg_build/files
 	cp $(PWD)/*.rpm $(PWD)/gppkg_build/files
 	$(GPPKG) build \
 		-f \
