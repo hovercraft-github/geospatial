@@ -55,7 +55,7 @@ extern "C"
     static void *
     allocator(size_t size)
     {
-            void *mem = malloc(size);
+            void *mem = palloc(size);
             oSetPointers.insert(mem);
             return mem;
     }
@@ -63,15 +63,15 @@ extern "C"
     static void
     freeor(void *mem)
     {
-            oSetPointers.erase(mem);
+            oSetPointers.pfree(mem);
             free(mem);
     }
 
     static void *
     reallocator(void *mem, size_t size)
     {
-            oSetPointers.erase(mem);
-            void *ret = realloc(mem, size);
+            oSetPointers.pfree(mem);
+            void *ret = repalloc(mem, size);
             oSetPointers.insert(ret);
             return ret;
     }
