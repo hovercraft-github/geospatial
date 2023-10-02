@@ -33,7 +33,7 @@
 #include <string.h>
 #include <ctype.h> /* for tolower */
 
-#include "postgres.h"
+#include <postgres.h>
 
 /* Global variables */
 #include "../postgis_config.h"
