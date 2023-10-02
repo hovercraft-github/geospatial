@@ -89,20 +89,20 @@ static char *lwgeomTypeName[] =
 static void *
 default_allocator(size_t size)
 {
-	void *mem = malloc(size);
+	void *mem = palloc(size);
 	return mem;
 }
 
 static void
 default_freeor(void *mem)
 {
-	free(mem);
+	pfree(mem);
 }
 
 static void *
 default_reallocator(void *mem, size_t size)
 {
-	void *ret = realloc(mem, size);
+	void *ret = repalloc(mem, size);
 	return ret;
 }
 
