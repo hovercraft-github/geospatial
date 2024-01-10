@@ -6,3 +6,7 @@
 39682|Index Scan
 39682|Index Scan
 480|Index Scan
+st_contains|Bitmap Index Scan
+st_dwithin|Bitmap Index Scan
+st_intersects|Index Scan
+st_overlaps|Index Scan
